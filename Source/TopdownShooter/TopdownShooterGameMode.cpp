@@ -11,5 +11,6 @@ ATopdownShooterGameMode::ATopdownShooterGameMode()
 	if (PlayerPawnBPClass.Class != NULL)
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
+	// 테스트
 	}
 }
