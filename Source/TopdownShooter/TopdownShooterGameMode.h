@@ -10,7 +10,10 @@ UCLASS(minimalapi)
 class ATopdownShooterGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
-
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	class APlayerCharacter* playerCharacter;
+	
 public:
 	ATopdownShooterGameMode();
 };
