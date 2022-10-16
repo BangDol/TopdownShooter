@@ -19,7 +19,12 @@ class APlayerCharacter : public ACharacterBase
 protected:
 	class APlayerCharacterController* playerController;
 
-	float interactableTraceMaxDist;
+	//플레이어의 상태 변수
+	UPROPERTY(BlueprintReadOnly)
+	bool isInteractable;
+	
+	float interactTraceMaxDist;
+	FHitResult interactTraceHitResult;
 
 public:
 	APlayerCharacter();
@@ -32,7 +37,10 @@ protected:
 	void MoveForward(float Value);
 	void MoveRight(float Value);
 	void AddControllerYawInput(float Val) override;
-
-	void SearchForInteractable();
+	void Interact();
 	
+	void SearchForInteractable();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void UpdateUI();
 };

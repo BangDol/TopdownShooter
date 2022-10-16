@@ -31,3 +31,8 @@ void AInteractable::Tick(float DeltaTime)
 
 }
 
+void AInteractable::OnDestroy()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, "Interactable Destroyed");
+	Destroy();
+}

@@ -12,6 +12,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
 
+//**다른 헤더로..
 #define AddDebugMessage(time, text) (GEngine->AddOnScreenDebugMessage(-1, time, FColor::Red, text))
 
 APlayerCharacter::APlayerCharacter()
@@ -31,7 +32,8 @@ APlayerCharacter::APlayerCharacter()
 	FollowCamera->bUsePawnControlRotation = false;
 
 	// 변수 초기화
-	interactableTraceMaxDist = 200.f;
+	isInteractable = false;
+	interactTraceMaxDist = 200.f;
 }
 
 void APlayerCharacter::BeginPlay()
@@ -56,7 +58,9 @@ void APlayerCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 	
 	PlayerInputComponent->BindAxis("MoveForward", this, &APlayerCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &APlayerCharacter::MoveRight);
-	PlayerInputComponent->BindAxis("TurnRate", this, &APlayerCharacter::AddControllerYawInput);
+	PlayerInputComponent->BindAxis("Turn", this, &APlayerCharacter::AddControllerYawInput);
+	
+	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &APlayerCharacter::Interact);
 }		
 
 
@@ -103,15 +107,26 @@ void APlayerCharacter::AddControllerYawInput(float Val)
 	}
 }
 
+void APlayerCharacter::Interact()
+{
+	if(isInteractable)
+	{
+		if(interactTraceHitResult.Actor.IsValid())
+		{
+			AInteractable* obj = Cast<AInteractable>(interactTraceHitResult.Actor.Get());
+			obj->OnDestroy();
+		}
+	}
+}
+
 #pragma endregion
 
 void APlayerCharacter::SearchForInteractable()
 {
-	FHitResult hitResult;
 	TArray<AActor*> actorsToIgnore;
 	ETraceTypeQuery interactableTraceType = UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel1);
 	FVector traceStart = FVector(GetActorLocation().X, GetActorLocation().Y, GetActorLocation().Z - 50.f);
-	FVector traceEnd = traceStart + (GetActorForwardVector() * interactableTraceMaxDist);
+	FVector traceEnd = traceStart + (GetActorForwardVector() * interactTraceMaxDist);
 
 	//Line Trace
 	//전용 트레이스 채널로 Interactable만 충돌
@@ -125,14 +140,19 @@ void APlayerCharacter::SearchForInteractable()
 		false,
 		actorsToIgnore,
 		EDrawDebugTrace::ForOneFrame,
-		hitResult,
+		interactTraceHitResult,
 		true,
 		FLinearColor::Red,
 		FLinearColor::Green);
 
 	//Interactable 오브젝트 체크
-	if(hitResult.bBlockingHit)
+	if(interactTraceHitResult.bBlockingHit)
 	{
-		AddDebugMessage(2.f, "Interactable Object!");
+		isInteractable = true;
 	}
+	else
+	{
+		isInteractable = false;
+	}
+	UpdateUI();	//**개선 고려
 }

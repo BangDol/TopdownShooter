@@ -14,10 +14,10 @@ class ATopdownShooterGameMode : public AGameModeBase
 protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = UMG)
-	TSubclassOf<UUserWidget> playerUI;
+	TSubclassOf<UUserWidget> playerUIClass;
 
 	UPROPERTY()
-	UUserWidget* currentUI;
+	UUserWidget* playerUI;
 
 public:
 	ATopdownShooterGameMode();
@@ -29,7 +29,7 @@ public:
 	void InitUI();
 
 	UFUNCTION(BlueprintCallable)
-	UUserWidget* GetCurrentUI();
+	UUserWidget* GetPlayerUI();
 };
 
 

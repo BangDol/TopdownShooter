@@ -25,22 +25,22 @@ void ATopdownShooterGameMode::BeginPlay()
 
 void ATopdownShooterGameMode::InitUI()
 {
-	if(playerUI != nullptr)
+	if(playerUIClass != nullptr)
 	{
-		currentUI = CreateWidget<UUserWidget>(GetWorld(), playerUI);
+		playerUI = CreateWidget<UUserWidget>(GetWorld(), playerUIClass);
 		
-		if (currentUI != nullptr)
+		if (playerUI != nullptr)
 		{
-			currentUI->AddToViewport();
+			playerUI->AddToViewport();
 		}
 	}
 }
 
-UUserWidget* ATopdownShooterGameMode::GetCurrentUI()
+UUserWidget* ATopdownShooterGameMode::GetPlayerUI()
 {
-	if (currentUI != nullptr)
+	if (playerUI != nullptr)
 	{
-		return currentUI;
+		return playerUI;
 	}
 
 	return nullptr;
