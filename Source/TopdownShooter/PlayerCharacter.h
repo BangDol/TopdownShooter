@@ -18,6 +18,11 @@ class APlayerCharacter : public ACharacterBase
 
 protected:
 	class APlayerCharacterController* playerController;
+
+	float interactableTraceMaxDist;
+
+public:
+	APlayerCharacter();
 	
 protected:
 	void BeginPlay() override;
@@ -26,9 +31,8 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	void MoveForward(float Value);
 	void MoveRight(float Value);
-	void RotateToMousePosition();
 	void AddControllerYawInput(float Val) override;
 
-public:
-	APlayerCharacter();
+	void SearchForInteractable();
+	
 };

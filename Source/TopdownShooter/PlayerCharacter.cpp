@@ -1,4 +1,7 @@
 #include "PlayerCharacter.h"
+
+#include "Interactable.h"
+#include "PhysXInterfaceWrapperCore.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
@@ -8,6 +11,8 @@
 #include "PlayerCharacterController.h"
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
+
+#define AddDebugMessage(time, text) (GEngine->AddOnScreenDebugMessage(-1, time, FColor::Red, text))
 
 APlayerCharacter::APlayerCharacter()
 {
@@ -24,6 +29,9 @@ APlayerCharacter::APlayerCharacter()
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	FollowCamera->bUsePawnControlRotation = false;
+
+	// 변수 초기화
+	interactableTraceMaxDist = 200.f;
 }
 
 void APlayerCharacter::BeginPlay()
@@ -36,7 +44,11 @@ void APlayerCharacter::BeginPlay()
 void APlayerCharacter::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
+
+	SearchForInteractable();
 }
+
+#pragma region 조작 관련
 
 void APlayerCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
@@ -88,5 +100,39 @@ void APlayerCharacter::AddControllerYawInput(float Val)
 		FRotator newRotation = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), hitResult.Location);
 		FRotator lookRotation = FRotator(0, newRotation.Yaw, 0);
 		GetCapsuleComponent()->SetWorldRotation(lookRotation);
+	}
+}
+
+#pragma endregion
+
+void APlayerCharacter::SearchForInteractable()
+{
+	FHitResult hitResult;
+	TArray<AActor*> actorsToIgnore;
+	ETraceTypeQuery interactableTraceType = UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel1);
+	FVector traceStart = FVector(GetActorLocation().X, GetActorLocation().Y, GetActorLocation().Z - 50.f);
+	FVector traceEnd = traceStart + (GetActorForwardVector() * interactableTraceMaxDist);
+
+	//Line Trace
+	//전용 트레이스 채널로 Interactable만 충돌
+	//Interactable 메시에 대해 콜리전 설정 확인할 것
+	UKismetSystemLibrary::SphereTraceSingle(
+		GetWorld(),
+		traceStart,
+		traceEnd,
+		30.f,
+		interactableTraceType,
+		false,
+		actorsToIgnore,
+		EDrawDebugTrace::ForOneFrame,
+		hitResult,
+		true,
+		FLinearColor::Red,
+		FLinearColor::Green);
+
+	//Interactable 오브젝트 체크
+	if(hitResult.bBlockingHit)
+	{
+		AddDebugMessage(2.f, "Interactable Object!");
 	}
 }

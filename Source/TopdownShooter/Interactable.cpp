@@ -11,6 +11,10 @@ AInteractable::AInteractable()
 
 	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	RootComponent = mesh;
+
+	//충돌을 위한 태그
+	//트레이스 채널로 대체
+	//Tags[0] = TEXT("Interactable");
 }
 
 // Called when the game starts or when spawned

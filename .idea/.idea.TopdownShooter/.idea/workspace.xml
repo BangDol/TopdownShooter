@@ -7,10 +7,9 @@
   <component name="ChangeListManager">
     <list default="true" id="572c5e78-dcf4-40ce-b080-b94f94981847" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/GameMode/GM_MainGame.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/GameMode/GM_MainGame.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/TopdownShooterGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/TopdownShooterGameMode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/TopdownShooterGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/TopdownShooterGameMode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Interactable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Interactable.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +255,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1665905760639</updated>
-      <workItem from="1665905797269" duration="605000" />
+      <workItem from="1665905797269" duration="3649000" />
     </task>
     <servers />
   </component>
