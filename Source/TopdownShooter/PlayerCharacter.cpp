@@ -99,13 +99,16 @@ void APlayerCharacter::AddControllerYawInput(float Val)
 {
 	Super::AddControllerYawInput(Val);
 
-	FHitResult hitResult;
-	
-	if(playerController->GetHitResultUnderCursorByChannel(ETraceTypeQuery::TraceTypeQuery1, true, hitResult))
+	if(playerController != nullptr)
 	{
-		FRotator newRotation = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), hitResult.Location);
-		FRotator lookRotation = FRotator(0, newRotation.Yaw, 0);
-		GetCapsuleComponent()->SetWorldRotation(lookRotation);
+		FHitResult hitResult;
+		
+		if(playerController->GetHitResultUnderCursorByChannel(ETraceTypeQuery::TraceTypeQuery1, true, hitResult))
+		{
+			FRotator newRotation = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), hitResult.Location);
+			FRotator lookRotation = FRotator(0, newRotation.Yaw, 0);
+			GetCapsuleComponent()->SetWorldRotation(lookRotation);
+		}
 	}
 }
 
@@ -116,7 +119,7 @@ void APlayerCharacter::Interact()
 		if(interactTraceHitResult.Actor.IsValid())
 		{
 			AInteractable* obj = Cast<AInteractable>(interactTraceHitResult.Actor.Get());
-			obj->OnDestroy();
+			obj->OnInteract();
 		}
 	}
 }

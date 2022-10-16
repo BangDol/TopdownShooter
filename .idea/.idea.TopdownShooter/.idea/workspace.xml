@@ -6,33 +6,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="572c5e78-dcf4-40ce-b080-b94f94981847" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Assets/Characters/Player/Animations/ABP_Player.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Assets/Characters/Player/Animations/BS_IdleWalk.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TopdownShooter/CharacterBaseAnimInstance.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TopdownShooter/CharacterBaseAnimInstance.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Characters/Player/Player.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/UI/Inventory/WBP_Inventory.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/Characters/Player/PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Characters/Player/PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/GameMode/GM_MainGame.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/GameMode/GM_MainGame.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Maps/Map_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Maps/Map_Test.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Character/Mesh/UE4_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Character/Mesh/UE4_Mannequin_Skeleton.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Marketplace/AnimStarterPack/UE4_Mannequin/Mesh/UE4_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Marketplace/AnimStarterPack/UE4_Mannequin/Mesh/UE4_Mannequin_Skeleton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Interactable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Interactable.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Interactable.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Interactable.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacter.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://D:/Unreal Projects/TopdownShooter/Source/TopdownShooter/PlayerCharacter.cpp" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
+  </component>
   <component name="ProjectId" id="2GCwDLn9MJyNhjsUd53z7HTE3DA" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -261,7 +269,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1665905760639</updated>
-      <workItem from="1665905797269" duration="12952000" />
+      <workItem from="1665905797269" duration="13566000" />
+      <workItem from="1665930882995" duration="2462000" />
     </task>
     <servers />
   </component>
@@ -282,17 +291,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacter.cpp</url>
-          <line>54</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
