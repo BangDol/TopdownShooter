@@ -5,7 +5,18 @@
     <projectFile>Intermediate/ProjectFiles/UE4.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="572c5e78-dcf4-40ce-b080-b94f94981847" name="Changes" comment="" />
+    <list default="true" id="572c5e78-dcf4-40ce-b080-b94f94981847" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Characters/Player/Animations/ABP_Player.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Characters/Player/Animations/BS_IdleWalk.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TopdownShooter/CharacterBaseAnimInstance.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TopdownShooter/CharacterBaseAnimInstance.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Characters/Player/PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Characters/Player/PlayerCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/GameMode/GM_MainGame.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/GameMode/GM_MainGame.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Maps/Map_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Maps/Map_Test.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Character/Mesh/UE4_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Character/Mesh/UE4_Mannequin_Skeleton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Marketplace/AnimStarterPack/UE4_Mannequin/Mesh/UE4_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Marketplace/AnimStarterPack/UE4_Mannequin/Mesh/UE4_Mannequin_Skeleton.uasset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -250,7 +261,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1665905760639</updated>
-      <workItem from="1665905797269" duration="11602000" />
+      <workItem from="1665905797269" duration="12952000" />
     </task>
     <servers />
   </component>
