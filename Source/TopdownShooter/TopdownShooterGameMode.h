@@ -12,6 +12,7 @@ class ATopdownShooterGameMode : public AGameModeBase
 	GENERATED_BODY()
 
 protected:
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = UMG)
 	TSubclassOf<UUserWidget> playerUI;
 

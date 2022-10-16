@@ -10,14 +10,7 @@
 
 ATopdownShooterGameMode::ATopdownShooterGameMode()
 {
-	
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Assets/Characters/PlayerCharacter"));
-
-	if (PlayerPawnBPClass.Class != nullptr)
-	{
-		DefaultPawnClass = PlayerPawnBPClass.Class;
-	}
-	
+	//DefaultPawnClass = APlayerCharacter::StaticClass();
 	PlayerControllerClass = APlayerCharacterController::StaticClass();
 }
 
@@ -27,6 +20,8 @@ void ATopdownShooterGameMode::BeginPlay()
 
 	InitUI();
 }
+
+#pragma region UI
 
 void ATopdownShooterGameMode::InitUI()
 {
@@ -50,3 +45,6 @@ UUserWidget* ATopdownShooterGameMode::GetCurrentUI()
 
 	return nullptr;
 }
+
+
+#pragma endregion
