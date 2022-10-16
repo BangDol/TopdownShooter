@@ -22,10 +22,13 @@ protected:
 	//플레이어의 상태 변수
 	UPROPERTY(BlueprintReadOnly)
 	bool isInteractable;
-	
+
+	//상호작용
 	float interactTraceMaxDist;
 	FHitResult interactTraceHitResult;
 
+	//
+	
 public:
 	APlayerCharacter();
 	
@@ -40,7 +43,4 @@ protected:
 	void Interact();
 	
 	void SearchForInteractable();
-
-	UFUNCTION(BlueprintImplementableEvent)
-	void UpdateUI();
 };

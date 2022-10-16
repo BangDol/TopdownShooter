@@ -7,6 +7,8 @@
 #include "TopdownShooterCharacter.h"
 #include "Blueprint/UserWidget.h"
 #include "UObject/ConstructorHelpers.h"
+#include "PlayerUserWidget.h"
+#include "Kismet/GameplayStatics.h"
 
 ATopdownShooterGameMode::ATopdownShooterGameMode()
 {
@@ -18,7 +20,17 @@ void ATopdownShooterGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
-	InitUI();
+	Init();
+}
+
+void ATopdownShooterGameMode::Init()
+{
+	player = Cast<APlayerCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+
+	if(player != nullptr)
+	{
+		InitUI();
+	}
 }
 
 #pragma region UI
@@ -27,16 +39,17 @@ void ATopdownShooterGameMode::InitUI()
 {
 	if(playerUIClass != nullptr)
 	{
-		playerUI = CreateWidget<UUserWidget>(GetWorld(), playerUIClass);
+		playerUI = CreateWidget<UPlayerUserWidget>(GetWorld(), playerUIClass);
 		
 		if (playerUI != nullptr)
 		{
 			playerUI->AddToViewport();
+			//playerUI->SetOwner(player);
 		}
 	}
 }
 
-UUserWidget* ATopdownShooterGameMode::GetPlayerUI()
+UPlayerUserWidget* ATopdownShooterGameMode::GetPlayerUI()
 {
 	if (playerUI != nullptr)
 	{
@@ -44,6 +57,11 @@ UUserWidget* ATopdownShooterGameMode::GetPlayerUI()
 	}
 
 	return nullptr;
+}
+
+void ATopdownShooterGameMode::UpdateInteractUI(bool b)
+{
+	playerUI->OnCheckInteractable(b);
 }
 
 

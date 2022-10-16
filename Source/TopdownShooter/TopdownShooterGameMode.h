@@ -12,24 +12,25 @@ class ATopdownShooterGameMode : public AGameModeBase
 	GENERATED_BODY()
 
 protected:
-
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = UMG)
 	TSubclassOf<UUserWidget> playerUIClass;
+	class UPlayerUserWidget* playerUI;
 
-	UPROPERTY()
-	UUserWidget* playerUI;
+	class APlayerCharacter* player;
 
 public:
 	ATopdownShooterGameMode();
 	
 protected:
-	virtual void BeginPlay() override;	
-
-public:
+	virtual void BeginPlay() override;
+	void Init();
 	void InitUI();
-
+	
+public:
 	UFUNCTION(BlueprintCallable)
-	UUserWidget* GetPlayerUI();
+	UPlayerUserWidget* GetPlayerUI();
+
+	void UpdateInteractUI(bool b);
 };
 
 

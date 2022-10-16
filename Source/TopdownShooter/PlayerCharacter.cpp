@@ -9,8 +9,10 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "PlayerCharacterController.h"
+#include "TopdownShooterGameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "Blueprint/UserWidget.h"
 
 //**다른 헤더로..
 #define AddDebugMessage(time, text) (GEngine->AddOnScreenDebugMessage(-1, time, FColor::Red, text))
@@ -154,5 +156,8 @@ void APlayerCharacter::SearchForInteractable()
 	{
 		isInteractable = false;
 	}
-	UpdateUI();	//**개선 고려
+
+	//UI Render Opacity
+	ATopdownShooterGameMode* gameMode = Cast<ATopdownShooterGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+	gameMode->UpdateInteractUI(isInteractable);
 }
