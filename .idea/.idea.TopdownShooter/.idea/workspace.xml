@@ -6,21 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="572c5e78-dcf4-40ce-b080-b94f94981847" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_AK47.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_Grenade.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/Icons/MI_Icon_AK47.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/Icons/MI_Icon_AK47_R.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/Icons/MI_Icon_Grenade.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/Icons/MI_Icon_Grenade_R.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/Icons/MI_Icon_Knife.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/Icons/MI_Icon_Knife_R.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/Icons/M_IconBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Characters/Player/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Characters/Player/BP_Player.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_Dummy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_Dummy.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/GameMode/GS_MainGame.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_ItemObject.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_ItemObject.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_Knife.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_Knife.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/InventoryComponent.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/InventoryComponent.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_Inventory.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_Inventory.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_InventoryGrid.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_InventoryGrid.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_Item.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_Item.uasset" afterDir="false" />
     </list>
