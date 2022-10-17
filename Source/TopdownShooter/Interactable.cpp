@@ -32,7 +32,12 @@ void AInteractable::Tick(float DeltaTime)
 }
 
 //캐릭터 상호작용 시 호출
-void AInteractable::OnInteract()
+//void AInteractable::OnInteract()
+//{
+//	
+//}
+
+void AInteractable::OnInteract_Implementation()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, "Interactable Destroyed");
 	Destroy();

@@ -6,23 +6,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="572c5e78-dcf4-40ce-b080-b94f94981847" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Assets/Characters/Player/Player.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Assets/UI/Inventory/WBP_Inventory.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Characters/Player/BP_Player.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_Dummy.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_ItemObject.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_Knife.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/Icons/AK47.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/Icons/Grenade.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/Icons/Knife.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/InventoryComponent.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/Line.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/SB_Color.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/Tile.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_Inventory.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_InventoryGrid.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_Item.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/WBP_PlayerUI.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Characters/Player/PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Characters/Player/PlayerCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Characters/Player/Player.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Characters/Player/PlayerCharacter.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Characters/PlayerCharacter.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/GameMode/GM_MainGame.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/GameMode/GM_MainGame.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Interactable/Item/BP_Dummy.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Maps/Map_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Maps/Map_Test.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Inventory/WBP_Inventory.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/WBP_Interact.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/WBP_Interact.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/WBP_PlayerUI.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Interactable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Interactable.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Interactable.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Interactable.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacter.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://D:/Unreal Projects/TopdownShooter/Source/TopdownShooter/PlayerCharacter.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -38,15 +54,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="C++ Project.TopdownShooter">
     <configuration name="TopdownShooter" type="CppProject" factoryName="C++ Project">
       <configuration_1>
@@ -270,7 +286,8 @@
       <option name="presentableId" value="Default" />
       <updated>1665905760639</updated>
       <workItem from="1665905797269" duration="13566000" />
-      <workItem from="1665930882995" duration="2462000" />
+      <workItem from="1665930882995" duration="2656000" />
+      <workItem from="1665973987208" duration="1290000" />
     </task>
     <servers />
   </component>
