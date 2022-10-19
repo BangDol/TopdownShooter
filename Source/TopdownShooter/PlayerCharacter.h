@@ -16,6 +16,9 @@ class APlayerCharacter : public ACharacterBase
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = UMG, meta= (AllowPrivateAccess = "true"))
+	class UInventoryComponent* inventoryComponent;
+
 protected:
 	class APlayerCharacterController* playerController;
 
@@ -27,8 +30,11 @@ protected:
 	float interactTraceMaxDist;
 	FHitResult interactTraceHitResult;
 
-	//
-	
+	//UI
+	UPROPERTY(EditAnywhere, Category = UMG)
+	TSubclassOf<UUserWidget> inventoryUIClass;
+	class UInventoryUserWidget* inventoryUI;
+
 public:
 	APlayerCharacter();
 	
@@ -39,8 +45,9 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	void MoveForward(float Value);
 	void MoveRight(float Value);
-	void AddControllerYawInput(float Val) override;
+	void Turn(float Value);
 	void Interact();
+	void ToggleInventory();
 	
 	void SearchForInteractable();
 };

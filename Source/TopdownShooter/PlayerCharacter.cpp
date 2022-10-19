@@ -1,6 +1,7 @@
 #include "PlayerCharacter.h"
 
 #include "Interactable.h"
+#include "InventoryComponent.h"
 #include "PhysXInterfaceWrapperCore.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -13,6 +14,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Blueprint/UserWidget.h"
+#include "InventoryUserWidget.h"
+#include "Blueprint/WidgetBlueprintLibrary.h"
 
 //**다른 헤더로..
 #define AddDebugMessage(time, text) (GEngine->AddOnScreenDebugMessage(-1, time, FColor::Red, text))
@@ -33,6 +36,8 @@ APlayerCharacter::APlayerCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	FollowCamera->bUsePawnControlRotation = false;
 
+	inventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("InventoryComponent"));
+
 	// 변수 초기화
 	isInteractable = false;
 	interactTraceMaxDist = 200.f;
@@ -42,7 +47,17 @@ void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
+	//플레이어 컨트롤러
 	playerController = Cast<APlayerCharacterController>(GetWorld()->GetFirstPlayerController());
+
+	//인벤토리 위젯 생성
+	if(inventoryUIClass != nullptr)
+	{
+		inventoryUI = CreateWidget<UInventoryUserWidget>(GetWorld(), inventoryUIClass);
+	}
+
+	//입력 모드
+	//UWidgetBlueprintLibrary::SetInputMode_GameOnly(playerController);
 }
 
 void APlayerCharacter::Tick(float DeltaSeconds)
@@ -60,9 +75,10 @@ void APlayerCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 	
 	PlayerInputComponent->BindAxis("MoveForward", this, &APlayerCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &APlayerCharacter::MoveRight);
-	PlayerInputComponent->BindAxis("Turn", this, &APlayerCharacter::AddControllerYawInput);
+	PlayerInputComponent->BindAxis("Turn", this, &APlayerCharacter::Turn);
 	
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &APlayerCharacter::Interact);
+	PlayerInputComponent->BindAction("ToggleInventory", IE_Pressed, this, &APlayerCharacter::ToggleInventory);
 }		
 
 
@@ -95,10 +111,8 @@ void APlayerCharacter::MoveRight(float Value)
 	}
 }
 
-void APlayerCharacter::AddControllerYawInput(float Val)
+void APlayerCharacter::Turn(float Value)
 {
-	Super::AddControllerYawInput(Val);
-
 	if(playerController != nullptr)
 	{
 		FHitResult hitResult;
@@ -122,6 +136,25 @@ void APlayerCharacter::Interact()
 			obj->OnInteract();
 		}
 	}
+}
+
+void APlayerCharacter::ToggleInventory()
+{
+	//if (inventoryUI != nullptr)
+	//{
+		//AddDebugMessage(2.f, TEXT("inventoryUI is not null"));
+		
+		if(inventoryUI->IsInViewport() == false)
+		{
+			inventoryUI->AddToViewport();
+			AddDebugMessage(2.f, TEXT("Add Inventory Widget"));
+		}
+		else
+		{
+			inventoryUI->RemoveFromParent();
+			AddDebugMessage(2.f, TEXT("Remove Inventory Widget"));
+		}
+	//}
 }
 
 #pragma endregion

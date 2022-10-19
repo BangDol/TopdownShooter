@@ -6,18 +6,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="572c5e78-dcf4-40ce-b080-b94f94981847" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/InventoryCPP/WBP_Inventory.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TopdownShooter/InventoryComponent.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TopdownShooter/InventoryComponent.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TopdownShooter/InventoryGridUserWidget.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TopdownShooter/InventoryGridUserWidget.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TopdownShooter/InventoryUserWidget.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TopdownShooter/InventoryUserWidget.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TopdownShooter/ItemObject.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TopdownShooter/ItemObject.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/Characters/Player/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Characters/Player/BP_Player.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/GameMode/GS_MainGame.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/GameMode/GS_MainGame.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/InventoryComponent.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/InventoryComponent.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_Inventory.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_Inventory.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_InventoryGrid.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_InventoryGrid.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TopdownShooter.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/TopdownShooter.uproject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://C:/Program Files (x86)/Windows Kits/10/Include/10.0.19041.0/shared/intsafe.h" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -269,7 +281,8 @@
       <workItem from="1665973987208" duration="1290000" />
       <workItem from="1665987912919" duration="1115000" />
       <workItem from="1666089804299" duration="599000" />
-      <workItem from="1666173927684" duration="1145000" />
+      <workItem from="1666173927684" duration="1183000" />
+      <workItem from="1666180290949" duration="11244000" />
     </task>
     <servers />
   </component>
