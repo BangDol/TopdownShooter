@@ -40,8 +40,11 @@ public:
 	
 protected:
 	void BeginPlay() override;
+
+public:
 	void Tick(float DeltaSeconds) override;
 
+protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	void MoveForward(float Value);
 	void MoveRight(float Value);
@@ -50,4 +53,8 @@ protected:
 	void ToggleInventory();
 	
 	void SearchForInteractable();
+	
+public:
+	UInventoryComponent* GetInventoryComponent();
+	
 };

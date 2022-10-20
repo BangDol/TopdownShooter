@@ -40,17 +40,21 @@ protected:
 public:	
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	
+protected:
+	UItemObject* GetItemAtIndex(int index);
+
+public:
 	FTile IndexToTile(int index);
 	int TileToIndex(FTile tile);
 	
 	TMap<UItemObject*, FTile> GetAllItems();
-	UItemObject* GetItemAtIndex(int index);
 	void AddItemAt(UItemObject* itemObject, int topLeftIndex);
 	bool TryAddItem(UItemObject* itemObject);
 	void RemoveItem(UItemObject* itemObject);
 	bool IsRoomAvaliable(UItemObject* itemObject, int topLeftIndex);
+	//**OnInventoryChanged (이벤트 디스패처)
 
-	
+	int GetColumns();
+	int GetRows();
 };	
 

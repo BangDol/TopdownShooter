@@ -197,3 +197,8 @@ void APlayerCharacter::SearchForInteractable()
 	ATopdownShooterGameMode* gameMode = Cast<ATopdownShooterGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
 	gameMode->UpdateInteractUI(isInteractable);
 }
+
+UInventoryComponent* APlayerCharacter::GetInventoryComponent()
+{
+	return inventoryComponent;
+}

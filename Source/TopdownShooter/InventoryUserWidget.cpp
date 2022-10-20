@@ -12,3 +12,9 @@ void UInventoryUserWidget::NativeOnInitialized()
 {
 	Super::NativeOnInitialized();
 }
+
+bool UInventoryUserWidget::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent,
+	UDragDropOperation* InOperation)
+{
+	return Super::NativeOnDrop(InGeometry, InDragDropEvent, InOperation);
+}

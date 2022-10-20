@@ -17,4 +17,6 @@ class TOPDOWNSHOOTER_API UInventoryUserWidget : public UUserWidget
 protected:
 	virtual void NativeConstruct() override;
 	virtual void NativeOnInitialized() override;
+	
+	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 };

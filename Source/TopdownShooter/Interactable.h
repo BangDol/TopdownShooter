@@ -29,6 +29,6 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent)
 	void OnInteract();
-	void OnInteract_Implementation();
+	virtual void OnInteract_Implementation();
 
 };

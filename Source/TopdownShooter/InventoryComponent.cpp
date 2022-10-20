@@ -43,6 +43,7 @@ FTile UInventoryComponent::IndexToTile(int index)
 
 int UInventoryComponent::TileToIndex(FTile tile)
 {
+	GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, TEXT("TileToIndex"));
 	return tile.x + (tile.y * columns);
 }
 
@@ -177,4 +178,14 @@ bool UInventoryComponent::IsRoomAvaliable(UItemObject* itemObject, int topLeftIn
 	}
 
 	return false;
+}
+
+int UInventoryComponent::GetColumns()
+{
+	return columns;
+}
+
+int UInventoryComponent::GetRows()
+{
+	return rows;
 }
