@@ -1,14 +1,12 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "TopdownShooterGameMode.h"
-
-#include "PlayerCharacter.h"
-#include "PlayerCharacterController.h"
-#include "TopdownShooterCharacter.h"
 #include "Blueprint/UserWidget.h"
 #include "UObject/ConstructorHelpers.h"
-#include "PlayerUserWidget.h"
 #include "Kismet/GameplayStatics.h"
+#include "TopdownShooter/Character/PlayerCharacter.h"
+#include "TopdownShooter/Character/PlayerCharacterController.h"
+#include "TopdownShooter/System/UI/PlayerUserWidget.h"
 
 ATopdownShooterGameMode::ATopdownShooterGameMode()
 {

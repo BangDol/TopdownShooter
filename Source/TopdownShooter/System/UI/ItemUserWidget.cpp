@@ -3,9 +3,9 @@
 
 #include "ItemUserWidget.h"
 
-#include "ItemObject.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "TopdownShooter/System/Inventory/ItemObject.h"
 
 FSlateBrush UItemUserWidget::GetIconImage()
 {
@@ -30,7 +30,7 @@ void UItemUserWidget::NativeOnDragDetected(const FGeometry& InGeometry, const FP
 
 	//OnRemoved 호출
 	RemoveFromParent();
-	//operation 리턴?
+	//**operation 리턴?
 }
 
 FReply UItemUserWidget::NativeOnMouseButtonDown(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent)

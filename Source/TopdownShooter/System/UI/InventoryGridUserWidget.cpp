@@ -4,10 +4,7 @@
 #include "InventoryGridUserWidget.h"
 
 #include "EditorDirectories.h"
-#include "InventoryComponent.h"
-#include "ItemObject.h"
 #include "ItemUserWidget.h"
-#include "TopdownShooterGameMode.h"
 #include "Blueprint/DragDropOperation.h"
 #include "Blueprint/SlateBlueprintLibrary.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
@@ -18,6 +15,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetInputLibrary.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "TopdownShooter/System/Inventory/InventoryComponent.h"
+#include "TopdownShooter/System/Inventory/ItemObject.h"
 
 void UInventoryGridUserWidget::Init(UInventoryComponent* _inventoryComponent, float _tileSize)
 {

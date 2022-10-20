@@ -6,25 +6,35 @@
 #include "UObject/NoExportTypes.h"
 #include "ItemObject.generated.h"
 
+USTRUCT()
+struct FItemSettings
+{
+	GENERATED_BODY()
+
+	//**아이템 이미지, 타일 등 속성
+};
+
 UCLASS()
 class TOPDOWNSHOOTER_API UItemObject : public UObject
 {
 	GENERATED_BODY()
 
-private:
+protected:
 	FIntPoint dimensions;
 	bool isRotated;
 
 public:
 	class UMaterialInterface* icon;
 	class UMaterialInterface* iconRotated;
-	TSubclassOf<class AInteractable> itemClass;
+	TSubclassOf<class AItem> itemClass;
 
 public:
 	FIntPoint GetDimension();
 	UMaterialInterface* GetIcon();
-	TSubclassOf<AInteractable> GetItemClass();
+	TSubclassOf<AItem> GetItemClass();
 	
 	void Rotate();
 	bool IsRotated();
+
+	void Init(FIntPoint _dimensions, UMaterialInterface* _icon, UMaterialInterface* _iconRotated, TSubclassOf<AItem> _itemClass);
 };

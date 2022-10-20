@@ -4,8 +4,9 @@
 #include "Item.h"
 
 #include "InventoryComponent.h"
-#include "PlayerCharacter.h"
+#include "ItemObject.h"
 #include "Kismet/GameplayStatics.h"
+#include "TopdownShooter/Character/PlayerCharacter.h"
 
 void AItem::BeginPlay()
 {
@@ -13,7 +14,7 @@ void AItem::BeginPlay()
 
 	if(itemObject == nullptr)
 	{
-		GetDefaultItemObject();
+		itemObject = GetDefaultItemObject_Implementation();
 	}
 }
 
@@ -32,6 +33,8 @@ void AItem::OnInteract_Implementation()
 
 UItemObject* AItem::GetDefaultItemObject_Implementation()
 {
-	//**이 부분이 완료되어야 테스트 진행 가능
-	return nullptr;
+	UItemObject* newItemObject = NewObject<UItemObject>(this);
+	newItemObject->Init(dimensions, icon, icon_rotated, itemClass);
+	
+	return newItemObject;
 }

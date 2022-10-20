@@ -31,7 +31,7 @@ UMaterialInterface* UItemObject::GetIcon()
 	}
 }
 
-TSubclassOf<AInteractable> UItemObject::GetItemClass()
+TSubclassOf<AItem> UItemObject::GetItemClass()
 {
 	return itemClass;
 }
@@ -44,4 +44,10 @@ void UItemObject::Rotate()
 bool UItemObject::IsRotated()
 {
 	return isRotated;
+}
+
+void UItemObject::Init(FIntPoint _dimensions, UMaterialInterface* _icon, UMaterialInterface* _iconRotated,
+	TSubclassOf<AItem> _itemClass)
+{
+	dimensions = _dimensions;
 }

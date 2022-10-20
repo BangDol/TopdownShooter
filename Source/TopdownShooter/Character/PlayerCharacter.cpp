@@ -1,7 +1,5 @@
 #include "PlayerCharacter.h"
 
-#include "Interactable.h"
-#include "InventoryComponent.h"
 #include "PhysXInterfaceWrapperCore.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -10,12 +8,14 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "PlayerCharacterController.h"
-#include "TopdownShooterGameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Blueprint/UserWidget.h"
-#include "InventoryUserWidget.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
+#include "TopdownShooter/Game/TopdownShooterGameMode.h"
+#include "TopdownShooter/System/Interactable.h"
+#include "TopdownShooter/System/Inventory/InventoryComponent.h"
+#include "TopdownShooter/System/UI/InventoryUserWidget.h"
 
 //**다른 헤더로..
 #define AddDebugMessage(time, text) (GEngine->AddOnScreenDebugMessage(-1, time, FColor::Red, text))
