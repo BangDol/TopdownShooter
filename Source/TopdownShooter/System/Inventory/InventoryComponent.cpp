@@ -38,6 +38,8 @@ FTile UInventoryComponent::IndexToTile(int index) const
 	tile.x = index % columns;
 	tile.y = index / columns;
 
+	//UE_LOG(LogTemp, Warning, TEXT("(Tile X : %d, Tile Y : %d), (Index : %d)"), tile.x, tile.y, index);
+
 	return tile;
 }
 
@@ -85,13 +87,16 @@ void UInventoryComponent::AddItemAt(UItemObject* itemObject, int topLeftIndex)
 		int startIdx_Y = IndexToTile(topLeftIndex).y;
 		int endIdx_Y = startIdx_Y + (itemObject->GetDimension().Y - 1);
 
-		for (startIdx_X; startIdx_X <= endIdx_X; startIdx_X++)
+		UE_LOG(LogTemp, Warning, TEXT("StartIndex X = %d, EndIndex X = %d"), startIdx_X, endIdx_X);
+		UE_LOG(LogTemp, Warning, TEXT("StartIndex Y = %d, EndIndex Y = %d"), startIdx_Y, endIdx_Y);
+		
+		for (int idx_X = startIdx_X;  idx_X <= endIdx_X; idx_X++)
 		{
-			for(startIdx_Y; startIdx_Y <= endIdx_Y; startIdx_Y++)
+			for(int idx_Y = startIdx_Y; idx_Y <= endIdx_Y; idx_Y++)
 			{
 				FTile tile;
-				tile.x = startIdx_X;
-				tile.y = startIdx_Y;
+				tile.x = idx_X;
+				tile.y = idx_Y;
 
 				int index = TileToIndex(tile);
 				items[index] = itemObject;
@@ -152,14 +157,17 @@ bool UInventoryComponent::IsRoomAvaliable(UItemObject* itemObject, int topLeftIn
 
 		int startIdx_Y = IndexToTile(topLeftIndex).y;
 		int endIdx_Y = startIdx_Y + (itemObject->GetDimension().Y - 1);
-	
-		for (startIdx_X; startIdx_X <= endIdx_X; startIdx_X++)
+
+		int idx_X;
+		int idx_Y;
+		
+		for (idx_X = startIdx_X; idx_X <= endIdx_X; idx_X++)
 		{
-			for(startIdx_Y; startIdx_Y <= endIdx_Y; startIdx_Y++)
+			for(idx_Y = startIdx_Y; idx_Y <= endIdx_Y; idx_Y++)
 			{
 				FTile tile;
-				tile.x = startIdx_X;
-				tile.y = startIdx_Y;
+				tile.x = idx_X;
+				tile.y = idx_Y;
 			
 				int index = TileToIndex(tile);
 			
@@ -168,21 +176,18 @@ bool UInventoryComponent::IsRoomAvaliable(UItemObject* itemObject, int topLeftIn
 					tile.x < columns &&
 					tile.y < rows)
 				{
-					if(IsValid(GetItemAtIndex(index)) == false)
+					if(GetItemAtIndex(index) != nullptr)
 					{
-						return true;	//모든 조건 통과 시 true
-					}
-					else
-					{
-						return false;	//해당 인덱스에 아이템이 존재할 때
+						return false;	//해당 인덱스에 다른 아이템이 존재하면 false
 					}
 				}
 				else
 				{
-					return false;	//아이템을 놓을 자리의 타일 중 하나라도 유효하지 않을때
+					return false;	//인덱스가 인벤토리 범위를 벗어나면 false
 				}
 			}
 		}
+		return true;	// 모든 조건 통과 시 true
 	}
 	else
 	{

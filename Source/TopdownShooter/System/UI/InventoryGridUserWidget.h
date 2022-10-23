@@ -52,14 +52,18 @@ public:
 	void Init(class UInventoryComponent* inventoryComponent, float tileSize);
 
 protected:
+
+	UFUNCTION(BlueprintCallable)
+	void Refresh();
 	
 	UFUNCTION()
-	void Refresh();
-	void CreateLineSegments();
-	UFUNCTION()
 	void OnItemRemoved(class UItemObject* itemObject);
-	FMouseDirectionOnTile MousePositionInTile(FVector2D mousePosition);
+	
+	UFUNCTION(BlueprintCallable)
 	class UItemObject* GetPayload(UDragDropOperation* dragDropOperation) const;
+	
+	void CreateLineSegments();
+	FMouseDirectionOnTile MousePositionInTile(FVector2D mousePosition);
 	bool IsRoomAvaliableForPayload(class UItemObject* payload) const;
 	int GetDraggedItemTopLeftIndex() const;
 	void CalcDraggedItemTopLeftTile(UDragDropOperation* InOperation, FVector2D mousePosition, FMouseDirectionOnTile mouseDirectionOnTile);

@@ -31,9 +31,9 @@ protected:
 	FHitResult interactTraceHitResult;
 
 	//UI
-	UPROPERTY(EditAnywhere, Category = UMG)
-	TSubclassOf<UUserWidget> inventoryUIClass;
-	class UInventoryUserWidget* inventoryUI;
+	//UPROPERTY(EditAnywhere, Category = UMG)
+	//TSubclassOf<class UInventoryUserWidget> inventoryUIClass;
+	//class UInventoryUserWidget* inventoryUI;
 
 public:
 	APlayerCharacter();

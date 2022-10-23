@@ -39,5 +39,6 @@ protected:
 	
 public:
 	void Init(float _tileSize, class UItemObject* _itemObject);
+	UFUNCTION(BlueprintCallable)
 	void Refresh();
 };

@@ -32,7 +32,8 @@ public:
 	FIntPoint GetDimension();
 	UMaterialInterface* GetIcon() const;
 	TSubclassOf<AItem> GetItemClass();
-	
+
+	UFUNCTION(BlueprintCallable)
 	void Rotate();
 	bool IsRotated();
 

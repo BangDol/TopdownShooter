@@ -51,19 +51,19 @@ void APlayerCharacter::BeginPlay()
 	playerController = Cast<APlayerCharacterController>(GetWorld()->GetFirstPlayerController());
 
 	//인벤토리 위젯 생성
-	if(inventoryUIClass != nullptr)
-	{
-		inventoryUI = CreateWidget<UInventoryUserWidget>(GetWorld(), inventoryUIClass);
-
-		if(inventoryComponent != nullptr)
-		{
-			inventoryUI->Init(inventoryComponent, 50.f);
-		}
-		else
-		{
-			AddDebugMessage(2.f, TEXT("Inventory Component is null"));
-		}
-	}
+	//if(inventoryUIClass != nullptr)
+	//{
+	//	inventoryUI = CreateWidget<UInventoryUserWidget>(playerController, inventoryUIClass);
+//
+	//	if(inventoryComponent != nullptr)
+	//	{
+	//		inventoryUI->Init(inventoryComponent, 50.f);
+	//	}
+	//	else
+	//	{
+	//		AddDebugMessage(2.f, TEXT("Inventory Component is null"));
+	//	}
+	//}
 
 	//입력 모드
 	//UWidgetBlueprintLibrary::SetInputMode_GameOnly(playerController);
@@ -149,14 +149,17 @@ void APlayerCharacter::Interact()
 
 void APlayerCharacter::ToggleInventory()
 {
-	if(inventoryUI->IsInViewport() == false)
-	{
-		inventoryUI->AddToViewport();
-	}
-	else
-	{
-		inventoryUI->RemoveFromParent();
-	}
+	//BP
+	//if(inventoryUI->IsInViewport() == false)
+	//{
+	//	inventoryUI->AddToViewport();
+	//	UWidgetBlueprintLibrary::SetInputMode_UIOnlyEx(playerController, inventoryUI);
+	//	AddDebugMessage(2.f, TEXT("Add To Viewport"));
+	//}
+	//else
+	//{
+	//	inventoryUI->RemoveFromParent();
+	//}
 }
 
 #pragma endregion

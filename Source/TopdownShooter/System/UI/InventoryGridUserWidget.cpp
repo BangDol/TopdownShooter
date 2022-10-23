@@ -156,6 +156,7 @@ int UInventoryGridUserWidget::GetDraggedItemTopLeftIndex() const
 	draggedItemsTile.x = draggedItem_TopLeftTile.X;
 	draggedItemsTile.y = draggedItem_TopLeftTile.Y;
 	int topLeftIndex = inventoryComponent->TileToIndex(draggedItemsTile);
+	
 	//GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Yellow,
 	//	TEXT("Dragging Item Top Left Index") + FString::FromInt(topLeftIndex));
 
@@ -164,33 +165,15 @@ int UInventoryGridUserWidget::GetDraggedItemTopLeftIndex() const
 
 void UInventoryGridUserWidget::CalcDraggedItemTopLeftTile(UDragDropOperation* InOperation, FVector2D mousePosition, FMouseDirectionOnTile mouseDirectionOnTile)
 {
-	// MousePositionInTile()도 체크
-	// draggedItemTopLeftTile이 이상하게 찍힘
-	
 	FVector2D dimension_Payload = Cast<UItemObject>(InOperation->Payload)->GetDimension();
 	int value_right = 0;
 	int value_down = 0;
 	
-	if(mouseDirectionOnTile.right)
-	{
-		value_right = 1;
-		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Orange, TEXT("right = true"));
-	}
-	else
-	{
-		value_right = 0;
-		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Orange, TEXT("right = false"));
-	}
-	if(mouseDirectionOnTile.down)
-	{
-		value_down = 1;
-		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Orange, TEXT("down = true"));
-	}
-	else
-	{
-		value_down = 0;
-		//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Orange, TEXT("down = false"));
-	}
+	if(mouseDirectionOnTile.right)	value_right = 1;
+	else							value_right = 0;
+	
+	if(mouseDirectionOnTile.down)	value_down = 1;
+	else							value_down = 0;
 
 	int value_X = dimension_Payload.X - value_right;
 	int value_Y = dimension_Payload.Y - value_down;
@@ -206,6 +189,9 @@ void UInventoryGridUserWidget::CalcDraggedItemTopLeftTile(UDragDropOperation* In
 	newIntPoint2 /= 2.f;
 
 	draggedItem_TopLeftTile = newIntPoint1 - newIntPoint2;
+
+	//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Orange,
+	//	TEXT("Dragged Item Top Left Tile" + draggedItem_TopLeftTile.ToString()));
 }
 
 bool UInventoryGridUserWidget::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent,
@@ -222,6 +208,10 @@ bool UInventoryGridUserWidget::NativeOnDrop(const FGeometry& InGeometry, const F
 			//**수정할 것
 			//ATopdownShooterGameMode* gameMode = Cast<ATopdownShooterGameMode>(UGameplayStatics::GetGameState(GetWorld()));
 			//Spawn Item From Actor (GameBase)
+		}
+		else
+		{
+			return false;
 		}
 	}
 	
@@ -260,8 +250,15 @@ void UInventoryGridUserWidget::NativeOnDragLeave(const FDragDropEvent& InDragDro
 
 FReply UInventoryGridUserWidget::NativeOnPreviewKeyDown(const FGeometry& InGeometry, const FKeyEvent& InKeyEvent)
 {
-	if(InKeyEvent.GetKey() == EKeys::R)
+	//Super::NativeOnPreviewKeyDown(InGeometry, InKeyEvent);
+	//**호출이 안되는 문제
+	
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("OnPreviewKeyDown"));
+	
+	if(UKismetInputLibrary::EqualEqual_KeyKey(InKeyEvent.GetKey(), EKeys::R))
 	{
+		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("R"));
+		
 		UDragDropOperation* dragDropOperation = UWidgetBlueprintLibrary::GetDragDroppingContent();
 		UItemObject* payload = GetPayload(dragDropOperation);
 		
@@ -277,8 +274,8 @@ FReply UInventoryGridUserWidget::NativeOnPreviewKeyDown(const FGeometry& InGeome
 }
 
 int32 UInventoryGridUserWidget::NativePaint(const FPaintArgs& Args, const FGeometry& AllottedGeometry,
-	const FSlateRect& MyCullingRect, FSlateWindowElementList& OutDrawElements, int32 LayerId,
-	const FWidgetStyle& InWidgetStyle, bool bParentEnabled) const
+                                            const FSlateRect& MyCullingRect, FSlateWindowElementList& OutDrawElements, int32 LayerId,
+                                            const FWidgetStyle& InWidgetStyle, bool bParentEnabled) const
 {
 	int32 maxLayer = LayerId;
 	maxLayer++;
@@ -301,7 +298,7 @@ int32 UInventoryGridUserWidget::NativePaint(const FPaintArgs& Args, const FGeome
 			maxLayer,
 			AllottedGeometry.ToPaintGeometry(),
 			points,
-			ESlateDrawEffect::None,
+			ESlateDrawEffect::None, 
 			FLinearColor(0.5f, 0.5f, 0.5f, 0.5f),
 			true,
 			1.f);

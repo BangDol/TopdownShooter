@@ -4,9 +4,9 @@
 #include "InventoryUserWidget.h"
 #include "InventoryGridUserWidget.h"
 
-void UInventoryUserWidget::NativeConstruct()
+UInventoryUserWidget::UInventoryUserWidget(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-	Super::NativeConstruct();
+	bStopAction = true;
 }
 
 void UInventoryUserWidget::NativeOnInitialized()

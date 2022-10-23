@@ -21,12 +21,15 @@ protected:
 private:
 	class UInventoryComponent* inventoryComponent;
 	float tileSize;
+
+public:
+	UInventoryUserWidget(const FObjectInitializer& ObjectInitializer);
 	
 protected:
-	virtual void NativeConstruct() override;
 	virtual void NativeOnInitialized() override;
 	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 
 public:
+	UFUNCTION(BlueprintCallable)
 	void Init(class UInventoryComponent* _inventoryComponent, float _tileSize);
 };
