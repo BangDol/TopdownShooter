@@ -2,6 +2,7 @@
 
 
 #include "InventoryUserWidget.h"
+#include "InventoryGridUserWidget.h"
 
 void UInventoryUserWidget::NativeConstruct()
 {
@@ -17,4 +18,12 @@ bool UInventoryUserWidget::NativeOnDrop(const FGeometry& InGeometry, const FDrag
 	UDragDropOperation* InOperation)
 {
 	return Super::NativeOnDrop(InGeometry, InDragDropEvent, InOperation);
+}
+
+void UInventoryUserWidget::Init(UInventoryComponent* _inventoryComponent, float _tileSize)
+{
+	inventoryComponent = _inventoryComponent;
+	tileSize = _tileSize;
+
+	inventoryGridUserWidget->Init(inventoryComponent, tileSize);
 }

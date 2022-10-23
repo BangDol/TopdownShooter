@@ -6,39 +6,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="572c5e78-dcf4-40ce-b080-b94f94981847" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_TestItem1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/InventoryCPP/WBP_InventoryGridCPP.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_AK47.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_AK47.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_ItemObject.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_ItemObject.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Characters/Player/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Characters/Player/BP_Player.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_TestItem.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_TestItem.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_InventoryGrid.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_InventoryGrid.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/InventoryCPP/WBP_Inventory.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/InventoryCPP/WBP_Inventory.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/InventoryCPP/WBP_InventoryGrid.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/InventoryCPP/WBP_InventoryGrid.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/InventoryCPP/WBP_item.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/InventoryCPP/WBP_item.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/CharacterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/CharacterBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/CharacterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/CharacterBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/CharacterBaseAnimInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/CharacterBaseAnimInstance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/CharacterBaseAnimInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/CharacterBaseAnimInstance.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Interactable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Interactable.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Interactable.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Interactable.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/InventoryComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/InventoryComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/InventoryComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/InventoryComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/InventoryGridUserWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryGridUserWidget.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/InventoryGridUserWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryGridUserWidget.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/InventoryUserWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryUserWidget.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/InventoryUserWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryUserWidget.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Item.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/Item.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Item.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/Item.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/ItemObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/ItemObject.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/ItemObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/ItemObject.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/ItemUserWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/ItemUserWidget.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/ItemUserWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/ItemUserWidget.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/PlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/PlayerCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacterController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/PlayerCharacterController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/PlayerCharacterController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/PlayerCharacterController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/PlayerUserWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/PlayerUserWidget.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/PlayerUserWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/PlayerUserWidget.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/TopdownShooter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Game/TopdownShooter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/TopdownShooter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Game/TopdownShooter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/TopdownShooterGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Game/TopdownShooterGameMode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/TopdownShooterGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Game/TopdownShooterGameMode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Character/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/PlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/InventoryComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/InventoryComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/InventoryComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/InventoryComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/Item.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/Item.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/Item.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/Item.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/ItemObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/ItemObject.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/ItemObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/ItemObject.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryGridUserWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryGridUserWidget.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryGridUserWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryGridUserWidget.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryUserWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryUserWidget.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryUserWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryUserWidget.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/ItemUserWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/ItemUserWidget.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/ItemUserWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/ItemUserWidget.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +58,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.49773756&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -301,7 +292,10 @@
       <workItem from="1666173927684" duration="1183000" />
       <workItem from="1666180290949" duration="11336000" />
       <workItem from="1666217321739" duration="13603000" />
-      <workItem from="1666269277936" duration="2898000" />
+      <workItem from="1666269277936" duration="3125000" />
+      <workItem from="1666391789259" duration="8058000" />
+      <workItem from="1666434088573" duration="800000" />
+      <workItem from="1666510320110" duration="14225000" />
     </task>
     <servers />
   </component>

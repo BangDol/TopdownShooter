@@ -19,9 +19,9 @@ FIntPoint UItemObject::GetDimension()
 	}
 }
 
-UMaterialInterface* UItemObject::GetIcon()
+UMaterialInterface* UItemObject::GetIcon() const
 {
-	if(isRotated)
+	if(!isRotated)
 	{
 		return icon;
 	}
@@ -50,4 +50,7 @@ void UItemObject::Init(FIntPoint _dimensions, UMaterialInterface* _icon, UMateri
 	TSubclassOf<AItem> _itemClass)
 {
 	dimensions = _dimensions;
+	icon = _icon;
+	iconRotated = _iconRotated;
+	itemClass = _itemClass;
 }

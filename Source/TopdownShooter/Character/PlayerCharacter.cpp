@@ -54,6 +54,15 @@ void APlayerCharacter::BeginPlay()
 	if(inventoryUIClass != nullptr)
 	{
 		inventoryUI = CreateWidget<UInventoryUserWidget>(GetWorld(), inventoryUIClass);
+
+		if(inventoryComponent != nullptr)
+		{
+			inventoryUI->Init(inventoryComponent, 50.f);
+		}
+		else
+		{
+			AddDebugMessage(2.f, TEXT("Inventory Component is null"));
+		}
 	}
 
 	//입력 모드
@@ -140,21 +149,14 @@ void APlayerCharacter::Interact()
 
 void APlayerCharacter::ToggleInventory()
 {
-	//if (inventoryUI != nullptr)
-	//{
-		//AddDebugMessage(2.f, TEXT("inventoryUI is not null"));
-		
-		if(inventoryUI->IsInViewport() == false)
-		{
-			inventoryUI->AddToViewport();
-			AddDebugMessage(2.f, TEXT("Add Inventory Widget"));
-		}
-		else
-		{
-			inventoryUI->RemoveFromParent();
-			AddDebugMessage(2.f, TEXT("Remove Inventory Widget"));
-		}
-	//}
+	if(inventoryUI->IsInViewport() == false)
+	{
+		inventoryUI->AddToViewport();
+	}
+	else
+	{
+		inventoryUI->RemoveFromParent();
+	}
 }
 
 #pragma endregion

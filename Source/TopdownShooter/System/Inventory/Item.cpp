@@ -21,13 +21,21 @@ void AItem::BeginPlay()
 void AItem::OnInteract_Implementation()
 {
 	//Super::OnInteract_Implementation();
+	//**override
 	//** 코드에서 콜리전 세팅해두는 게 좋을 듯
 	GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, TEXT("OnInteract"));
 	
 	APlayerCharacter* player = Cast<APlayerCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
-	if(player->GetInventoryComponent()->TryAddItem(itemObject))
+	if(itemObject != nullptr)
 	{
-		Destroy();
+		if(player->GetInventoryComponent()->TryAddItem(itemObject))
+		{
+			Destroy();
+		}		
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("AItem::OnInteract_Implementation : itemObject is null"));
 	}
 }
 

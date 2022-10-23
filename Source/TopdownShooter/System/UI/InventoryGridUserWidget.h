@@ -15,6 +15,15 @@ struct FLine
 	FVector2D end;
 };
 
+USTRUCT()
+struct FMouseDirectionOnTile
+{
+	GENERATED_BODY()
+
+	bool right = false;
+	bool down = false;
+};
+
 UCLASS()
 class TOPDOWNSHOOTER_API UInventoryGridUserWidget : public UUserWidget
 {
@@ -27,7 +36,7 @@ protected:
 	class USlateBrushAsset* brushAsset;
 	
 	UPROPERTY(meta = (BindWidget))
-	class UGridPanel* inventory_GridPanel;
+	class UCanvasPanel* inventory_GridPanel;
 
 	UPROPERTY(meta = (BindWidget))
 	class UBorder* inventory_GridBorder;
@@ -43,18 +52,22 @@ public:
 	void Init(class UInventoryComponent* inventoryComponent, float tileSize);
 
 protected:
-	void CreateLineSegments();
+	
+	UFUNCTION()
 	void Refresh();
+	void CreateLineSegments();
+	UFUNCTION()
 	void OnItemRemoved(class UItemObject* itemObject);
-	void MousePositionInTile(FVector2D mousePosition, bool& _right, bool& _down);
-	class UItemObject* GetPayload(UDragDropOperation* dragDropOperation);
-	bool IsRoomAvaliableForPayload(class UItemObject* payload);
+	FMouseDirectionOnTile MousePositionInTile(FVector2D mousePosition);
+	class UItemObject* GetPayload(UDragDropOperation* dragDropOperation) const;
+	bool IsRoomAvaliableForPayload(class UItemObject* payload) const;
+	int GetDraggedItemTopLeftIndex() const;
+	void CalcDraggedItemTopLeftTile(UDragDropOperation* InOperation, FVector2D mousePosition, FMouseDirectionOnTile mouseDirectionOnTile);
 
 	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 	virtual bool NativeOnDragOver(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
+	virtual void NativeOnDragEnter(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
+	virtual void NativeOnDragLeave(const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 	virtual FReply NativeOnPreviewKeyDown(const FGeometry& InGeometry, const FKeyEvent& InKeyEvent) override;
-	virtual void NativePaint(FPaintContext& InContext) const override;
-	void OnPaint(FPaintContext& InContext);
-
-	float GetDraggedItemTopLeftIndex();
+	virtual int32 NativePaint(const FPaintArgs& Args, const FGeometry& AllottedGeometry, const FSlateRect& MyCullingRect, FSlateWindowElementList& OutDrawElements, int32 LayerId, const FWidgetStyle& InWidgetStyle, bool bParentEnabled) const override;
 };

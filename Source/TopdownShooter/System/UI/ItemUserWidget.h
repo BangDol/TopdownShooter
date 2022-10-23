@@ -6,9 +6,8 @@
 #include "Blueprint/UserWidget.h"
 #include "ItemUserWidget.generated.h"
 
-/**
- * 
- */
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FItemUserWidgetDelegate, class UItemObject*, itemObject);
+
 UCLASS()
 class TOPDOWNSHOOTER_API UItemUserWidget : public UUserWidget
 {
@@ -27,13 +26,18 @@ protected:
 	float tileSize;
 	class UItemObject* itemObject;
 	FVector2D size;
+
+public:
+	FItemUserWidgetDelegate OnRemovedDelegate;
 	
 protected:
+	virtual void NativeOnInitialized() override;
+	virtual void NativeOnMouseEnter(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent) override;
 	FSlateBrush GetIconImage();
 	virtual void NativeOnDragDetected(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent, UDragDropOperation*& OutOperation) override;
 	virtual FReply NativeOnMouseButtonDown(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent) override;
 	
 public:
-	void SetVariables(float _tileSize, class UItemObject* _itemObject);
-	//**OnRemoved (이벤트 디스패처)
+	void Init(float _tileSize, class UItemObject* _itemObject);
+	void Refresh();
 };

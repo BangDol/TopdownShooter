@@ -28,11 +28,11 @@ void UInventoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 	if(isDirty)
 	{
 		isDirty = false;
-		//call On Inventory Changed
+		OnInventoryChangedDelegate.Broadcast();
 	}
 }
 
-FTile UInventoryComponent::IndexToTile(int index)
+FTile UInventoryComponent::IndexToTile(int index) const
 {
 	FTile tile;
 	tile.x = index % columns;
@@ -41,20 +41,19 @@ FTile UInventoryComponent::IndexToTile(int index)
 	return tile;
 }
 
-int UInventoryComponent::TileToIndex(FTile tile)
+int UInventoryComponent::TileToIndex(FTile tile) const
 {
-	GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, TEXT("TileToIndex"));
 	return tile.x + (tile.y * columns);
 }
 
-TMap<UItemObject*, FTile> UInventoryComponent::GetAllItems()
+TMap<UItemObject*, FTile> UInventoryComponent::GetAllItemObjects() const
 {
 	TMap<UItemObject*, FTile> allItems;
 	
 	for (int idx = 0; idx < items.Num(); idx++)
 	{
 		UItemObject*  currentItemObject = items[idx];
-		if(IsValid(currentItemObject))
+		if(currentItemObject != nullptr)
 		{
 			if(allItems.Contains(currentItemObject) == false)
 			{
@@ -78,31 +77,38 @@ UItemObject* UInventoryComponent::GetItemAtIndex(int index)
 
 void UInventoryComponent::AddItemAt(UItemObject* itemObject, int topLeftIndex)
 {
-	int startIdx_X = IndexToTile(topLeftIndex).x;
-	int endIdx_X = startIdx_X + (itemObject->GetDimension().X - 1);
-
-	int startIdx_Y = IndexToTile(topLeftIndex).y;
-	int endIdx_Y = startIdx_Y + (itemObject->GetDimension().Y - 1);
-
-	for (startIdx_X; startIdx_X <= endIdx_X; startIdx_X++)
+	if(itemObject != nullptr)
 	{
-		for(startIdx_Y; startIdx_Y <= endIdx_Y; startIdx_Y++)
-		{
-			FTile tile;
-			tile.x = startIdx_X;
-			tile.y = startIdx_Y;
+		int startIdx_X = IndexToTile(topLeftIndex).x;
+		int endIdx_X = startIdx_X + (itemObject->GetDimension().X - 1);
 
-			int index = TileToIndex(tile);
-			items[index] = itemObject;
+		int startIdx_Y = IndexToTile(topLeftIndex).y;
+		int endIdx_Y = startIdx_Y + (itemObject->GetDimension().Y - 1);
+
+		for (startIdx_X; startIdx_X <= endIdx_X; startIdx_X++)
+		{
+			for(startIdx_Y; startIdx_Y <= endIdx_Y; startIdx_Y++)
+			{
+				FTile tile;
+				tile.x = startIdx_X;
+				tile.y = startIdx_Y;
+
+				int index = TileToIndex(tile);
+				items[index] = itemObject;
+			}
 		}
-	}
 	
-	isDirty = true;
+		isDirty = true;
+	}
+	else
+	{
+		
+	}
 }
 
 bool UInventoryComponent::TryAddItem(UItemObject* itemObject)
 {
-	if(IsValid(itemObject))
+	if(itemObject != nullptr)
 	{
 		for(int count = 1; count <= 2; count ++)
 		{
@@ -115,7 +121,6 @@ bool UInventoryComponent::TryAddItem(UItemObject* itemObject)
 					return true;
 				}
 			}
-		
 			itemObject->Rotate();	
 		}
 	}
@@ -125,7 +130,7 @@ bool UInventoryComponent::TryAddItem(UItemObject* itemObject)
 
 void UInventoryComponent::RemoveItem(UItemObject* itemObject)
 {
-	if(IsValid(itemObject))
+	if(itemObject != nullptr)
 	{
 		for (int idx = 0; idx < items.Num(); idx++)
 		{
@@ -140,52 +145,59 @@ void UInventoryComponent::RemoveItem(UItemObject* itemObject)
 
 bool UInventoryComponent::IsRoomAvaliable(UItemObject* itemObject, int topLeftIndex)
 {
-	int startIdx_X = IndexToTile(topLeftIndex).x;
-	int endIdx_X = startIdx_X + (itemObject->GetDimension().X - 1);
-
-	int startIdx_Y = IndexToTile(topLeftIndex).y;
-	int endIdx_Y = startIdx_Y + (itemObject->GetDimension().Y - 1);
-	
-	for (startIdx_X; startIdx_X <= endIdx_X; startIdx_X++)
+	if(itemObject != nullptr)
 	{
-		for(startIdx_Y; startIdx_Y <= endIdx_Y; startIdx_Y++)
+		int startIdx_X = IndexToTile(topLeftIndex).x;
+		int endIdx_X = startIdx_X + (itemObject->GetDimension().X - 1);
+
+		int startIdx_Y = IndexToTile(topLeftIndex).y;
+		int endIdx_Y = startIdx_Y + (itemObject->GetDimension().Y - 1);
+	
+		for (startIdx_X; startIdx_X <= endIdx_X; startIdx_X++)
 		{
-			FTile tile;
-			tile.x = startIdx_X;
-			tile.y = startIdx_Y;
-			
-			int index = TileToIndex(tile);
-			
-			if(tile.x >= 0 &&
-				tile.y >= 0 &&
-				tile.x < columns &&
-				tile.y < rows)
+			for(startIdx_Y; startIdx_Y <= endIdx_Y; startIdx_Y++)
 			{
-				if(IsValid(GetItemAtIndex(index)) == false)
+				FTile tile;
+				tile.x = startIdx_X;
+				tile.y = startIdx_Y;
+			
+				int index = TileToIndex(tile);
+			
+				if(tile.x >= 0 &&
+					tile.y >= 0 &&
+					tile.x < columns &&
+					tile.y < rows)
 				{
-					return true;	//모든 조건 통과 시 true
+					if(IsValid(GetItemAtIndex(index)) == false)
+					{
+						return true;	//모든 조건 통과 시 true
+					}
+					else
+					{
+						return false;	//해당 인덱스에 아이템이 존재할 때
+					}
 				}
 				else
 				{
-					return false;	//해당 인덱스에 아이템이 존재할 때
+					return false;	//아이템을 놓을 자리의 타일 중 하나라도 유효하지 않을때
 				}
-			}
-			else
-			{
-				return false;	//아이템을 놓을 자리의 타일 중 하나라도 유효하지 않을때
 			}
 		}
 	}
-
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("InventoryComponent::IsRoomAvaliable : Item Object is null"));
+	}
+	
 	return false;
 }
 
-int UInventoryComponent::GetColumns()
+int UInventoryComponent::GetColumns() const
 {
 	return columns;
 }
 
-int UInventoryComponent::GetRows()
+int UInventoryComponent::GetRows() const
 {
 	return rows;
 }

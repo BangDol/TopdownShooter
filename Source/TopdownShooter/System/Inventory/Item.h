@@ -22,7 +22,7 @@ protected:
 	UMaterialInterface* icon_rotated;
 	UPROPERTY(EditAnywhere, Category="Item Settings")
 	TSubclassOf<AItem> itemClass; //**this->GetClass()?
-
+	
 protected:
 	void BeginPlay() override;
 	void OnInteract_Implementation() override;

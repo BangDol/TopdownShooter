@@ -6,6 +6,8 @@
 #include "Components/ActorComponent.h"
 #include "InventoryComponent.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FInventoryComponentDelegate);
+
 USTRUCT()
 struct FTile
 {
@@ -31,6 +33,9 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Inventory Settings")
 	int rows;
 
+public:
+	FInventoryComponentDelegate OnInventoryChangedDelegate;
+	
 public:	
 	UInventoryComponent();
 
@@ -44,17 +49,16 @@ protected:
 	UItemObject* GetItemAtIndex(int index);
 
 public:
-	FTile IndexToTile(int index);
-	int TileToIndex(FTile tile);
+	FTile IndexToTile(int index) const;
+	int TileToIndex(FTile tile) const;
 	
-	TMap<UItemObject*, FTile> GetAllItems();
+	TMap<UItemObject*, FTile> GetAllItemObjects() const;
 	void AddItemAt(UItemObject* itemObject, int topLeftIndex);
 	bool TryAddItem(UItemObject* itemObject);
 	void RemoveItem(UItemObject* itemObject);
 	bool IsRoomAvaliable(UItemObject* itemObject, int topLeftIndex);
-	//**OnInventoryChanged (이벤트 디스패처)
 
-	int GetColumns();
-	int GetRows();
+	int GetColumns() const;
+	int GetRows() const;
 };	
 

@@ -30,7 +30,7 @@ public:
 
 public:
 	FIntPoint GetDimension();
-	UMaterialInterface* GetIcon();
+	UMaterialInterface* GetIcon() const;
 	TSubclassOf<AItem> GetItemClass();
 	
 	void Rotate();
