@@ -86,9 +86,6 @@ void UInventoryComponent::AddItemAt(UItemObject* itemObject, int topLeftIndex)
 
 		int startIdx_Y = IndexToTile(topLeftIndex).y;
 		int endIdx_Y = startIdx_Y + (itemObject->GetDimension().Y - 1);
-
-		UE_LOG(LogTemp, Warning, TEXT("StartIndex X = %d, EndIndex X = %d"), startIdx_X, endIdx_X);
-		UE_LOG(LogTemp, Warning, TEXT("StartIndex Y = %d, EndIndex Y = %d"), startIdx_Y, endIdx_Y);
 		
 		for (int idx_X = startIdx_X;  idx_X <= endIdx_X; idx_X++)
 		{

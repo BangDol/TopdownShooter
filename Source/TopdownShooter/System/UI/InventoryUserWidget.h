@@ -25,11 +25,9 @@ private:
 public:
 	UInventoryUserWidget(const FObjectInitializer& ObjectInitializer);
 	
-protected:
-	virtual void NativeOnInitialized() override;
-	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
-
-public:
 	UFUNCTION(BlueprintCallable)
 	void Init(class UInventoryComponent* _inventoryComponent, float _tileSize);
+	
+protected:
+	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 };

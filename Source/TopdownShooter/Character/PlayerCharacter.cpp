@@ -49,24 +49,6 @@ void APlayerCharacter::BeginPlay()
 
 	//플레이어 컨트롤러
 	playerController = Cast<APlayerCharacterController>(GetWorld()->GetFirstPlayerController());
-
-	//인벤토리 위젯 생성
-	//if(inventoryUIClass != nullptr)
-	//{
-	//	inventoryUI = CreateWidget<UInventoryUserWidget>(playerController, inventoryUIClass);
-//
-	//	if(inventoryComponent != nullptr)
-	//	{
-	//		inventoryUI->Init(inventoryComponent, 50.f);
-	//	}
-	//	else
-	//	{
-	//		AddDebugMessage(2.f, TEXT("Inventory Component is null"));
-	//	}
-	//}
-
-	//입력 모드
-	//UWidgetBlueprintLibrary::SetInputMode_GameOnly(playerController);
 }
 
 void APlayerCharacter::Tick(float DeltaSeconds)
@@ -95,11 +77,9 @@ void APlayerCharacter::MoveForward(float Value)
 {
 	if ((playerController != nullptr) && (Value != 0.0f))
 	{
-		// find out which way is forward
 		const FRotator Rotation = playerController->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
 
-		// get forward vector
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 		AddMovementInput(Direction, Value);
 	}
@@ -109,13 +89,10 @@ void APlayerCharacter::MoveRight(float Value)
 {
 	if ( (playerController != nullptr) && (Value != 0.0f) )
 	{
-		// find out which way is right
 		const FRotator Rotation = playerController->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
 	
-		// get right vector 
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
-		// add movement in that direction
 		AddMovementInput(Direction, Value);
 	}
 }
@@ -150,16 +127,6 @@ void APlayerCharacter::Interact()
 void APlayerCharacter::ToggleInventory()
 {
 	//BP
-	//if(inventoryUI->IsInViewport() == false)
-	//{
-	//	inventoryUI->AddToViewport();
-	//	UWidgetBlueprintLibrary::SetInputMode_UIOnlyEx(playerController, inventoryUI);
-	//	AddDebugMessage(2.f, TEXT("Add To Viewport"));
-	//}
-	//else
-	//{
-	//	inventoryUI->RemoveFromParent();
-	//}
 }
 
 #pragma endregion

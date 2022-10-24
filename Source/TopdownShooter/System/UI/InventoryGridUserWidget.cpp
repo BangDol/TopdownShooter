@@ -39,40 +39,6 @@ void UInventoryGridUserWidget::Init(UInventoryComponent* _inventoryComponent, fl
 	inventoryComponent->OnInventoryChangedDelegate.AddDynamic(this, &UInventoryGridUserWidget::Refresh);
 }
 
-void UInventoryGridUserWidget::CreateLineSegments()
-{
-	float x = 0;
-	float y = 0;
-	
-	//Vertical Lines
-	for(int idx = 0; idx <= inventoryComponent->GetColumns(); idx++)
-	{
-		x = idx * tileSize;
-		
-		FLine newLine;
-		newLine.start.X = x;
-		newLine.start.Y = 0;
-		newLine.end.X = x;
-		newLine.end.Y = inventoryComponent->GetRows() * tileSize;
-
-		lines.Add(newLine);
-	}
-
-	//Horizontal Lines
-	for(int idx = 0; idx <= inventoryComponent->GetRows(); idx++)
-	{
-		y = idx * tileSize;
-		
-		FLine newLine;
-		newLine.start.X = 0;
-		newLine.start.Y = y;
-		newLine.end.X = inventoryComponent->GetColumns() * tileSize;
-		newLine.end.Y = y;
-
-		lines.Add(newLine);
-	}
-}
-
 void UInventoryGridUserWidget::Refresh()
 {
 	inventory_GridPanel->ClearChildren();
@@ -111,6 +77,37 @@ void UInventoryGridUserWidget::Refresh()
 void UInventoryGridUserWidget::OnItemRemoved(UItemObject* itemObject)
 {
 	inventoryComponent->RemoveItem(itemObject);
+}
+
+void UInventoryGridUserWidget::CreateLineSegments()
+{
+	//Vertical Lines
+	for(int idx = 0; idx <= inventoryComponent->GetColumns(); idx++)
+	{
+		float x = idx * tileSize;
+		
+		FLine newLine;
+		newLine.start.X = x;
+		newLine.start.Y = 0;
+		newLine.end.X = x;
+		newLine.end.Y = inventoryComponent->GetRows() * tileSize;
+
+		lines.Add(newLine);
+	}
+
+	//Horizontal Lines
+	for(int idx = 0; idx <= inventoryComponent->GetRows(); idx++)
+	{
+		float y = idx * tileSize;
+		
+		FLine newLine;
+		newLine.start.X = 0;
+		newLine.start.Y = y;
+		newLine.end.X = inventoryComponent->GetColumns() * tileSize;
+		newLine.end.Y = y;
+
+		lines.Add(newLine);
+	}
 }
 
 FMouseDirectionOnTile UInventoryGridUserWidget::MousePositionInTile(FVector2D mousePosition)
@@ -156,9 +153,6 @@ int UInventoryGridUserWidget::GetDraggedItemTopLeftIndex() const
 	draggedItemsTile.x = draggedItem_TopLeftTile.X;
 	draggedItemsTile.y = draggedItem_TopLeftTile.Y;
 	int topLeftIndex = inventoryComponent->TileToIndex(draggedItemsTile);
-	
-	//GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Yellow,
-	//	TEXT("Dragging Item Top Left Index") + FString::FromInt(topLeftIndex));
 
 	return topLeftIndex;
 }
@@ -189,14 +183,15 @@ void UInventoryGridUserWidget::CalcDraggedItemTopLeftTile(UDragDropOperation* In
 	newIntPoint2 /= 2.f;
 
 	draggedItem_TopLeftTile = newIntPoint1 - newIntPoint2;
-
-	//GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Orange,
-	//	TEXT("Dragged Item Top Left Tile" + draggedItem_TopLeftTile.ToString()));
 }
+
+#pragma region Native
 
 bool UInventoryGridUserWidget::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent,
                                             UDragDropOperation* InOperation)
 {
+	UWidgetBlueprintLibrary::SetFocusToGameViewport();	//마우스를 다른 곳에 클릭하지 않고도 바로 인벤토리를 끌 수 있게 해줌
+	
 	if(IsRoomAvaliableForPayload(GetPayload(InOperation)))
 	{
 		inventoryComponent->AddItemAt(GetPayload(InOperation), GetDraggedItemTopLeftIndex());
@@ -244,21 +239,16 @@ void UInventoryGridUserWidget::NativeOnDragEnter(const FGeometry& InGeometry, co
 void UInventoryGridUserWidget::NativeOnDragLeave(const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation)
 {
 	Super::NativeOnDragLeave(InDragDropEvent, InOperation);
-
+	
 	drawDropLocation = false;
 }
 
 FReply UInventoryGridUserWidget::NativeOnPreviewKeyDown(const FGeometry& InGeometry, const FKeyEvent& InKeyEvent)
 {
-	//Super::NativeOnPreviewKeyDown(InGeometry, InKeyEvent);
-	//**호출이 안되는 문제
-	
-	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("OnPreviewKeyDown"));
+	Super::NativeOnPreviewKeyDown(InGeometry, InKeyEvent);
 	
 	if(UKismetInputLibrary::EqualEqual_KeyKey(InKeyEvent.GetKey(), EKeys::R))
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, TEXT("R"));
-		
 		UDragDropOperation* dragDropOperation = UWidgetBlueprintLibrary::GetDragDroppingContent();
 		UItemObject* payload = GetPayload(dragDropOperation);
 		
@@ -286,7 +276,6 @@ int32 UInventoryGridUserWidget::NativePaint(const FPaintArgs& Args, const FGeome
 		FVector2D localTopLeft = inventory_GridBorder->GetCachedGeometry().GetLocalPositionAtCoordinates(FVector2D(0, 0));
 		FVector2D positionA = lines[idx].start + localTopLeft;
 		FVector2D positionB = lines[idx].end + localTopLeft;
-		//UWidgetBlueprintLibrary::DrawLine(InContext, positionA, positionB);
 		
 		//Draw Line
 		TArray<FVector2D> points;
@@ -307,35 +296,45 @@ int32 UInventoryGridUserWidget::NativePaint(const FPaintArgs& Args, const FGeome
 	//드래그 & 드랍 시 놓을 지점 표시해주는 박스 그리기
 	if(UWidgetBlueprintLibrary::IsDragDropping() && drawDropLocation)
 	{
-		UDragDropOperation* dragDropOperation = UWidgetBlueprintLibrary::GetDragDroppingContent();
-		UItemObject* payload = GetPayload(dragDropOperation);
+		UItemObject* payload = GetPayload(UWidgetBlueprintLibrary::GetDragDroppingContent());
 
 		FLinearColor boxColor;
-		if(IsRoomAvaliableForPayload(payload))
+
+		if(payload != nullptr)
 		{
-			boxColor = FLinearColor(1.f, 1.f, 1.f, 0.5f);	//드랍이 가능할 때
+			if(IsRoomAvaliableForPayload(payload))
+			{
+				boxColor = FLinearColor(1.f, 1.f, 1.f, 0.5f);	//드랍이 가능할 때
+			}
+			else
+			{
+				boxColor = FLinearColor(1.f, 0.f, 0.f, 0.3f);	//드랍이 불가할 때
+			}
+
+			FVector2D position = draggedItem_TopLeftTile * tileSize;
+			FVector2D size;
+			size.X = payload->GetDimension().X * tileSize;
+			size.Y = payload->GetDimension().Y * tileSize;
+
+			//Draw Box
+			FSlateDrawElement::MakeBox(
+				OutDrawElements,
+				maxLayer,
+				AllottedGeometry.ToPaintGeometry(position, size),
+				&brushAsset->Brush,
+				ESlateDrawEffect::None,
+				boxColor);
 		}
 		else
 		{
-			boxColor = FLinearColor(1.f, 0.f, 0.f, 0.3f);	//드랍이 불가할 때
+			UE_LOG(LogTemp, Warning, TEXT("InventoryGrid -> OnPaint -> payload is null"));
 		}
-
-		FVector2D position = draggedItem_TopLeftTile * tileSize;
-		FVector2D size;
-		size.X = payload->GetDimension().X * tileSize;
-		size.Y = payload->GetDimension().Y * tileSize;
-		//UWidgetBlueprintLibrary::DrawBox(InContext, position, size, brushAsset, boxColor);
-
-		//Draw Box
-		FSlateDrawElement::MakeBox(
-			OutDrawElements,
-			maxLayer,
-			AllottedGeometry.ToPaintGeometry(position, size),
-			&brushAsset->Brush,
-			ESlateDrawEffect::None,
-			boxColor);
-	}
-
-	return Super::NativePaint(Args, AllottedGeometry, MyCullingRect, OutDrawElements, LayerId, InWidgetStyle,
+		
+		return Super::NativePaint(Args, AllottedGeometry, MyCullingRect, OutDrawElements, LayerId, InWidgetStyle,
 						  bParentEnabled);
+	}
+	
+	return 0;
 }
+
+#pragma endregion 

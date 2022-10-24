@@ -52,21 +52,19 @@ public:
 	void Init(class UInventoryComponent* inventoryComponent, float tileSize);
 
 protected:
-
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION()
 	void Refresh();
 	
 	UFUNCTION()
 	void OnItemRemoved(class UItemObject* itemObject);
 	
-	UFUNCTION(BlueprintCallable)
-	class UItemObject* GetPayload(UDragDropOperation* dragDropOperation) const;
 	
 	void CreateLineSegments();
 	FMouseDirectionOnTile MousePositionInTile(FVector2D mousePosition);
 	bool IsRoomAvaliableForPayload(class UItemObject* payload) const;
 	int GetDraggedItemTopLeftIndex() const;
 	void CalcDraggedItemTopLeftTile(UDragDropOperation* InOperation, FVector2D mousePosition, FMouseDirectionOnTile mouseDirectionOnTile);
+	class UItemObject* GetPayload(UDragDropOperation* dragDropOperation) const;
 
 	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 	virtual bool NativeOnDragOver(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;

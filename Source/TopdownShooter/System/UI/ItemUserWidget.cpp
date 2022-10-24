@@ -12,20 +12,9 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "TopdownShooter/System/Inventory/ItemObject.h"
 
-void UItemUserWidget::NativeOnInitialized()
+UItemUserWidget::UItemUserWidget(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-	Super::NativeOnInitialized();
-
-	//**주의
-	//Refresh();
-}
-
-void UItemUserWidget::NativeOnMouseEnter(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent)
-{
-	Super::NativeOnMouseEnter(InGeometry, InMouseEvent);
-
-	FLinearColor borderColor = FLinearColor(0.5f, 0.5f, 0.5f, 0.2f);
-	backgroundBorder->SetBrushColor(borderColor);
+	bIsFocusable = true;
 }
 
 FSlateBrush UItemUserWidget::GetIconImage()
@@ -39,8 +28,47 @@ FSlateBrush UItemUserWidget::GetIconImage()
 	return newSlateBrush;
 }
 
+void UItemUserWidget::Init(float _tileSize, UItemObject* _itemObject)
+{
+	tileSize = _tileSize;
+	itemObject = _itemObject;
+	itemImage->Brush = GetIconImage();
+	
+	backGroundBorderColor_OnNormal = backgroundBorder->BrushColor;
+}
+
+void UItemUserWidget::Refresh()
+{
+	size.X = itemObject->GetDimension().X * tileSize;
+	size.Y = itemObject->GetDimension().Y * tileSize;
+	backgroundSizeBox->SetWidthOverride(size.X);
+	backgroundSizeBox->SetHeightOverride(size.Y);
+	itemImage->Brush = GetIconImage();
+	
+	UWidgetLayoutLibrary::SlotAsCanvasSlot(itemImage)->SetSize(size);
+}
+
+#pragma region Native
+
+//마우스 올려두면 Border 색상 변화
+void UItemUserWidget::NativeOnMouseEnter(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent)
+{
+	Super::NativeOnMouseEnter(InGeometry, InMouseEvent);
+
+	bIsFocusable = true;
+	backgroundBorder->SetBrushColor(backGroundBorderColor_OnMouseEnter);
+}
+
+//마우스 빠져나오면 Border 색상 복구
+void UItemUserWidget::NativeOnMouseLeave(const FPointerEvent& InMouseEvent)
+{
+	Super::NativeOnMouseLeave(InMouseEvent);
+
+	backgroundBorder->SetBrushColor(backGroundBorderColor_OnNormal);
+}
+
 void UItemUserWidget::NativeOnDragDetected(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent,
-	UDragDropOperation*& OutOperation)
+                                           UDragDropOperation*& OutOperation)
 {
 	Super::NativeOnDragDetected(InGeometry, InMouseEvent, OutOperation);
 	
@@ -62,20 +90,4 @@ FReply UItemUserWidget::NativeOnMouseButtonDown(const FGeometry& InGeometry, con
 	return eventReply.NativeReply;
 }
 
-void UItemUserWidget::Init(float _tileSize, UItemObject* _itemObject)
-{
-	tileSize = _tileSize;
-	itemObject = _itemObject;
-
-	itemImage->Brush = GetIconImage();
-}
-
-void UItemUserWidget::Refresh()
-{
-	size.X = itemObject->GetDimension().X * tileSize;
-	size.Y = itemObject->GetDimension().Y * tileSize;
-	backgroundSizeBox->SetWidthOverride(size.X);
-	backgroundSizeBox->SetHeightOverride(size.Y);
-	
-	UWidgetLayoutLibrary::SlotAsCanvasSlot(itemImage)->SetSize(size);
-}
+#pragma endregion

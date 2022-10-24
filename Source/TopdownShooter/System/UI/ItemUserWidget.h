@@ -27,18 +27,23 @@ protected:
 	class UItemObject* itemObject;
 	FVector2D size;
 
+	UPROPERTY(EditAnywhere)
+	FLinearColor backGroundBorderColor_OnMouseEnter;
+	FLinearColor backGroundBorderColor_OnNormal;
+	
 public:
 	FItemUserWidgetDelegate OnRemovedDelegate;
+
+public:
+	UItemUserWidget(const FObjectInitializer& ObjectInitializer);
+	void Init(float _tileSize, class UItemObject* _itemObject);
+	void Refresh();
 	
 protected:
-	virtual void NativeOnInitialized() override;
-	virtual void NativeOnMouseEnter(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent) override;
 	FSlateBrush GetIconImage();
+
+	virtual void NativeOnMouseEnter(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent) override;
+	virtual void NativeOnMouseLeave(const FPointerEvent& InMouseEvent) override;
 	virtual void NativeOnDragDetected(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent, UDragDropOperation*& OutOperation) override;
 	virtual FReply NativeOnMouseButtonDown(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent) override;
-	
-public:
-	void Init(float _tileSize, class UItemObject* _itemObject);
-	UFUNCTION(BlueprintCallable)
-	void Refresh();
 };
