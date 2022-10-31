@@ -22,20 +22,19 @@ class TOPDOWNSHOOTER_API UItemObject : public UObject
 protected:
 	FIntPoint dimensions;
 	bool isRotated;
-
-public:
+	
 	class UMaterialInterface* icon;
 	class UMaterialInterface* iconRotated;
-	TSubclassOf<class AItem> itemClass;
+	class AItem* item;
 
 public:
 	FIntPoint GetDimension();
 	UMaterialInterface* GetIcon() const;
-	TSubclassOf<AItem> GetItemClass();
+	AItem* GetItem();
 
 	UFUNCTION(BlueprintCallable)
 	void Rotate();
 	bool IsRotated();
 
-	void Init(FIntPoint _dimensions, UMaterialInterface* _icon, UMaterialInterface* _iconRotated, TSubclassOf<AItem> _itemClass);
+	void Init(FIntPoint _dimensions, UMaterialInterface* _icon, UMaterialInterface* _iconRotated, AItem* _itemClass);
 };

@@ -14,6 +14,8 @@
 #include "Blueprint/WidgetBlueprintLibrary.h"
 #include "TopdownShooter/Game/TopdownShooterGameMode.h"
 #include "TopdownShooter/System/Interactable.h"
+#include "TopdownShooter/System/Equipments/EquipmentComponent.h"
+#include "TopdownShooter/System/Equipments/Weapon.h"
 #include "TopdownShooter/System/Inventory/InventoryComponent.h"
 #include "TopdownShooter/System/UI/InventoryUserWidget.h"
 
@@ -37,6 +39,7 @@ APlayerCharacter::APlayerCharacter()
 	FollowCamera->bUsePawnControlRotation = false;
 
 	inventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("InventoryComponent"));
+	equipmentComponent = CreateDefaultSubobject<UEquipmentComponent>(TEXT("EquipmentComponent"));
 
 	// 변수 초기화
 	isInteractable = false;
@@ -70,6 +73,7 @@ void APlayerCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 	
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &APlayerCharacter::Interact);
 	PlayerInputComponent->BindAction("ToggleInventory", IE_Pressed, this, &APlayerCharacter::ToggleInventory);
+	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &APlayerCharacter::Attack);
 }		
 
 
@@ -127,6 +131,14 @@ void APlayerCharacter::Interact()
 void APlayerCharacter::ToggleInventory()
 {
 	//BP
+}
+
+void APlayerCharacter::Attack()
+{
+	if(equipmentComponent->GetEquippedWeapon() != nullptr)
+	{
+		equipmentComponent->GetEquippedWeapon()->Attack();
+	}
 }
 
 #pragma endregion

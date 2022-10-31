@@ -49,7 +49,7 @@ protected:
 	bool drawDropLocation;
 
 public:
-	void Init(class UInventoryComponent* inventoryComponent, float tileSize);
+	void Init(class UInventoryComponent* _inventoryComponent, float _tileSize);
 
 protected:
 	UFUNCTION()

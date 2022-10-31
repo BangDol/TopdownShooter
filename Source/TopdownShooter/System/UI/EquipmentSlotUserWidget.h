@@ -4,11 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "TopdownShooter/System/Equipments/EquipmentComponent.h"
 #include "EquipmentSlotUserWidget.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class TOPDOWNSHOOTER_API UEquipmentSlotUserWidget : public UUserWidget
 {
@@ -17,6 +15,10 @@ class TOPDOWNSHOOTER_API UEquipmentSlotUserWidget : public UUserWidget
 private:
 	class APlayerCharacter* player;
 	
+	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	class UEquipmentComponent* equipmentComponent;
+	class UInventoryComponent* inventoryComponent;
+
 	class UItemObject* itemObject;
 	
 protected:
@@ -28,19 +30,28 @@ protected:
 	class UImage* slotImage;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Settings")
+	FLinearColor slotBorderColor_OnNormal;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Settings")
 	FLinearColor slotBorderColor_OnMouseEnter;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Settings")
-	FLinearColor slotBorderColor_OnNormal;
+	FLinearColor slotBorderColor_OnNotAvaliable;
 
+	UPROPERTY(EditAnywhere, Category="Settings")
+	EEquipmentType equipmentType;
+	
 	UWidget* dragVisual;
+	
 
-private:
-	void Init();
+public:
+	void Init(class UInventoryComponent* _inventoryComponent, class UEquipmentComponent* _equipmentComponent);
+	
+protected:
 	void SetSlotEmpty();
 	void SetSlotColorToNormal();
 	void SetSlotColorToOnMouseEnter();
+	void SetSlotColorToOnNotAvaliable();
+	bool CheckIsEquippable(UItemObject* _itemObject);
 	
-protected:
 	virtual void NativeConstruct() override;
 	virtual void NativeOnDragEnter(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 	virtual void NativeOnDragLeave(const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;

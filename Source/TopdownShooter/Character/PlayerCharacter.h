@@ -19,6 +19,9 @@ class APlayerCharacter : public ACharacterBase
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = UMG, meta= (AllowPrivateAccess = "true"))
 	class UInventoryComponent* inventoryComponent;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = UMG, meta= (AllowPrivateAccess = "true"))
+	class UEquipmentComponent* equipmentComponent;
+
 protected:
 	class APlayerCharacterController* playerController;
 
@@ -32,24 +35,21 @@ protected:
 
 public:
 	APlayerCharacter();
-	
-protected:
 	void BeginPlay() override;
-
-public:
 	void Tick(float DeltaSeconds) override;
 
 protected:
+	//Input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	void MoveForward(float Value);
 	void MoveRight(float Value);
 	void Turn(float Value);
 	void Interact();
 	void ToggleInventory();
+	void Attack();
 	
 	void SearchForInteractable();
-	
+
 public:
 	UInventoryComponent* GetInventoryComponent();
-	
 };

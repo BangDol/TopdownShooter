@@ -31,9 +31,9 @@ UMaterialInterface* UItemObject::GetIcon() const
 	}
 }
 
-TSubclassOf<AItem> UItemObject::GetItemClass()
+AItem* UItemObject::GetItem()
 {
-	return itemClass;
+	return item;
 }
 
 void UItemObject::Rotate()
@@ -47,10 +47,10 @@ bool UItemObject::IsRotated()
 }
 
 void UItemObject::Init(FIntPoint _dimensions, UMaterialInterface* _icon, UMaterialInterface* _iconRotated,
-	TSubclassOf<AItem> _itemClass)
+	AItem* _item)
 {
 	dimensions = _dimensions;
 	icon = _icon;
 	iconRotated = _iconRotated;
-	itemClass = _itemClass;
+	item = _item;
 }

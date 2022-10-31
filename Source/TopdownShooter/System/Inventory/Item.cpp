@@ -41,7 +41,7 @@ void AItem::OnInteract_Implementation()
 UItemObject* AItem::GetDefaultItemObject_Implementation()
 {
 	UItemObject* newItemObject = NewObject<UItemObject>(this);
-	newItemObject->Init(dimensions, icon, icon_rotated, itemClass);
+	newItemObject->Init(dimensions, icon, icon_rotated, this);
 	
 	return newItemObject;
 }

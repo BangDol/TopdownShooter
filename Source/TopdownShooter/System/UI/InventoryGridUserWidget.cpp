@@ -198,7 +198,7 @@ bool UInventoryGridUserWidget::NativeOnDrop(const FGeometry& InGeometry, const F
 	{
 		if(inventoryComponent->TryAddItem(GetPayload(InOperation)) == false)
 		{
-			//**수정할 것
+			//!@#수정할 것
 			//ATopdownShooterGameMode* gameMode = Cast<ATopdownShooterGameMode>(UGameplayStatics::GetGameState(GetWorld()));
 			//Spawn Item From Actor (GameBase)
 		}

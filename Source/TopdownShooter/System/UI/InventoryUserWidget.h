@@ -18,15 +18,19 @@ protected:
 	UPROPERTY(meta = (BindWidget))
 	class UInventoryGridUserWidget* inventoryGridUserWidget;
 
+	UPROPERTY(meta = (BindWidget))
+	class UEquipmentsUserWidget* equipmentsUserWidget;
+
 private:
 	class UInventoryComponent* inventoryComponent;
+	class UEquipmentComponent* equipmentComponent;
 	float tileSize;
 
 public:
 	UInventoryUserWidget(const FObjectInitializer& ObjectInitializer);
 	
 	UFUNCTION(BlueprintCallable)
-	void Init(class UInventoryComponent* _inventoryComponent, float _tileSize);
+	void Init(class UInventoryComponent* _inventoryComponent, UEquipmentComponent* _equipmentComponent, float _tileSize);
 	
 protected:
 	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
