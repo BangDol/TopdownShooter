@@ -190,8 +190,6 @@ void UInventoryGridUserWidget::CalcDraggedItemTopLeftTile(UDragDropOperation* In
 bool UInventoryGridUserWidget::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent,
                                             UDragDropOperation* InOperation)
 {
-	UWidgetBlueprintLibrary::SetFocusToGameViewport();	//마우스를 다른 곳에 클릭하지 않고도 바로 인벤토리를 끌 수 있게 해줌
-	
 	if(IsRoomAvaliableForPayload(GetPayload(InOperation)))
 	{
 		inventoryComponent->AddItemAt(GetPayload(InOperation), GetDraggedItemTopLeftIndex());

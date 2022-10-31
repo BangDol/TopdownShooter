@@ -6,44 +6,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="572c5e78-dcf4-40ce-b080-b94f94981847" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Test/Inventory/BP_AK47.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Test/Inventory/BP_Grenade.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Test/Inventory/BP_Knife.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Test/Inventory/Tile.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Test/Inventory/WBP_Inventory.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Test/Inventory/WBP_InventoryGrid.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Test/Inventory/WBP_Item.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_EquipmentSlot.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_EquipmentSlots.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/EquipmentSlotUserWidget.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/EquipmentSlotUserWidget.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Characters/Player/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Characters/Player/BP_Player.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/GameMode/GM_MainGame.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/GameMode/GM_MainGame.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/GameMode/GS_MainGame.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Test/Inventory/GS_MainGame.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_AK47.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_Dummy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Test/Inventory/BP_Dummy.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_Grenade.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_ItemObject.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Test/Inventory/BP_ItemObject.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_Knife.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Maps/Map_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Maps/Map_Test.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/InventoryComponent.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Test/Inventory/InventoryComponent.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/Line.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Test/Inventory/Line.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/SB_Color.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/SB_Color.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/Tile.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_Inventory.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_Inventory.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_InventoryGrid.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_InventoryGrid.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_Item.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/Inventory/WBP_Item.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/InventoryCPP/SB_Color.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Test/Inventory/SB_Color.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/InventoryCPP/WBP_Inventory.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/InventoryCPP/WBP_InventoryCPP.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/InventoryCPP/WBP_InventoryGrid.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/InventoryCPP/WBP_InventoryGridCPP.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/InventoryCPP/WBP_ItemCPP.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/InventoryCPP/WBP_item.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/InventoryComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/InventoryComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/Item.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/Item.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/UI/Widget/WBP_PlayerUI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/UI/Widget/WBP_PlayerUI.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryGridUserWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryGridUserWidget.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryGridUserWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryGridUserWidget.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryUserWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryUserWidget.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryUserWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/InventoryUserWidget.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/ItemUserWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/ItemUserWidget.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/ItemUserWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/UI/ItemUserWidget.h" afterDir="false" />
     </list>
@@ -313,7 +285,12 @@
       <workItem from="1666391789259" duration="8058000" />
       <workItem from="1666434088573" duration="800000" />
       <workItem from="1666510320110" duration="25493000" />
-      <workItem from="1666609301829" duration="5330000" />
+      <workItem from="1666609301829" duration="5612000" />
+      <workItem from="1667047641297" duration="327000" />
+      <workItem from="1667066731003" duration="5217000" />
+      <workItem from="1667126484094" duration="940000" />
+      <workItem from="1667134840591" duration="4302000" />
+      <workItem from="1667203721222" duration="1921000" />
     </task>
     <task id="LOCAL-00001" summary="인벤토리 BP -&gt; C++ 이동 작업4">
       <created>1666524589216</created>

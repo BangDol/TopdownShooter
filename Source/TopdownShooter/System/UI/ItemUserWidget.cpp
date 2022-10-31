@@ -71,7 +71,8 @@ void UItemUserWidget::NativeOnDragDetected(const FGeometry& InGeometry, const FP
                                            UDragDropOperation*& OutOperation)
 {
 	Super::NativeOnDragDetected(InGeometry, InMouseEvent, OutOperation);
-	
+
+	//드래그 드랍 오퍼레이션 생성
 	UDragDropOperation* dragDropOperation = NewObject<UDragDropOperation>();
 	dragDropOperation->Payload = itemObject;
 	dragDropOperation->DefaultDragVisual = this;
@@ -88,6 +89,14 @@ FReply UItemUserWidget::NativeOnMouseButtonDown(const FGeometry& InGeometry, con
 	FEventReply eventReply = UWidgetBlueprintLibrary::DetectDragIfPressed(InMouseEvent, this, EKeys::LeftMouseButton);
 	
 	return eventReply.NativeReply;
+}
+
+FReply UItemUserWidget::NativeOnFocusReceived(const FGeometry& InGeometry, const FFocusEvent& InFocusEvent)
+{
+	//포커스 잡혔으면 다시 풀어줌
+	UWidgetBlueprintLibrary::SetFocusToGameViewport();
+	
+	return Super::NativeOnFocusReceived(InGeometry, InFocusEvent);
 }
 
 #pragma endregion
