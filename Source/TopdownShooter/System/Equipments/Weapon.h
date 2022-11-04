@@ -15,5 +15,7 @@ class TOPDOWNSHOOTER_API AWeapon : public AEquipment
 	GENERATED_BODY()
 
 public:
-	virtual void Attack() {}
+	AWeapon();
+	
+	virtual void Attack();
 };

@@ -25,7 +25,6 @@ protected:
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	class UBorder* slotBorder;
-
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	class UImage* slotImage;
 	
@@ -37,7 +36,7 @@ protected:
 	FLinearColor slotBorderColor_OnNotAvaliable;
 
 	UPROPERTY(EditAnywhere, Category="Settings")
-	EEquipmentType equipmentType;
+	EEquipmentType equipmentSlotType;
 	
 	UWidget* dragVisual;
 	
@@ -51,6 +50,7 @@ protected:
 	void SetSlotColorToOnMouseEnter();
 	void SetSlotColorToOnNotAvaliable();
 	bool CheckIsEquippable(UItemObject* _itemObject);
+	void AddEquipmentToSlot(UItemObject* _itemObject);
 	
 	virtual void NativeConstruct() override;
 	virtual void NativeOnDragEnter(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;

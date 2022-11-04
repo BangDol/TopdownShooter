@@ -15,6 +15,7 @@ class TOPDOWNSHOOTER_API UCharacterBaseAnimInstance : public UAnimInstance
 	GENERATED_BODY()
 
 protected:
+	UPROPERTY(BlueprintReadOnly)
 	class ACharacterBase* owner;
 
 	UPROPERTY(BlueprintReadOnly)

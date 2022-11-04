@@ -42,7 +42,6 @@ APlayerCharacter::APlayerCharacter()
 	equipmentComponent = CreateDefaultSubobject<UEquipmentComponent>(TEXT("EquipmentComponent"));
 
 	// 변수 초기화
-	isInteractable = false;
 	interactTraceMaxDist = 200.f;
 }
 
@@ -59,6 +58,7 @@ void APlayerCharacter::Tick(float DeltaSeconds)
 	Super::Tick(DeltaSeconds);
 
 	SearchForInteractable();
+	UpdatePCState();
 }
 
 #pragma region 조작 관련
@@ -74,6 +74,8 @@ void APlayerCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &APlayerCharacter::Interact);
 	PlayerInputComponent->BindAction("ToggleInventory", IE_Pressed, this, &APlayerCharacter::ToggleInventory);
 	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &APlayerCharacter::Attack);
+	PlayerInputComponent->BindAction("SwapToWeapon1", IE_Pressed, this, &APlayerCharacter::SwapToWeapon1);
+	PlayerInputComponent->BindAction("SwapToWeapon2", IE_Pressed, this, &APlayerCharacter::SwapToWeapon2);
 }		
 
 
@@ -118,7 +120,7 @@ void APlayerCharacter::Turn(float Value)
 
 void APlayerCharacter::Interact()
 {
-	if(isInteractable)
+	if(pcState.isInteractable)
 	{
 		if(interactTraceHitResult.Actor.IsValid())
 		{
@@ -139,6 +141,18 @@ void APlayerCharacter::Attack()
 	{
 		equipmentComponent->GetEquippedWeapon()->Attack();
 	}
+}
+
+void APlayerCharacter::SwapToWeapon1()
+{
+	//equipmentComponent->SwapToWeapon1();
+	equipmentComponent->SwapWeapon(EEquipmentType::Weapon1);
+}
+
+void APlayerCharacter::SwapToWeapon2()
+{
+	//equipmentComponent->SwapToWeapon2();
+	equipmentComponent->SwapWeapon(EEquipmentType::Weapon2);
 }
 
 #pragma endregion
@@ -170,19 +184,31 @@ void APlayerCharacter::SearchForInteractable()
 	//Interactable 오브젝트 체크
 	if(interactTraceHitResult.bBlockingHit)
 	{
-		isInteractable = true;
+		pcState.isInteractable = true;
 	}
 	else
 	{
-		isInteractable = false;
+		pcState.isInteractable = false;
 	}
 
 	//UI Render Opacity
 	ATopdownShooterGameMode* gameMode = Cast<ATopdownShooterGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
-	gameMode->UpdateInteractUI(isInteractable);
+	gameMode->UpdateInteractUI(pcState.isInteractable = true);
 }
 
 UInventoryComponent* APlayerCharacter::GetInventoryComponent()
 {
 	return inventoryComponent;
+}
+
+void APlayerCharacter::UpdatePCState()
+{
+	if(equipmentComponent->GetEquippedWeapon() != nullptr)
+	{
+		pcState.isArmed = true;
+	}
+	else
+	{
+		pcState.isArmed = false;
+	}
 }

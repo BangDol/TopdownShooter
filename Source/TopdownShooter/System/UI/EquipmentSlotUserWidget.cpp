@@ -24,7 +24,7 @@ void UEquipmentSlotUserWidget::SetSlotEmpty()
 {
 	//아이템 비어있음
 	itemObject = nullptr;
-	equipmentComponent->RemoveEquipment(equipmentType);
+	equipmentComponent->RemoveEquipment(equipmentSlotType);
 
 	//이미지 비어있음
 	FSlateBrush slotImage_Empty = UWidgetBlueprintLibrary::MakeBrushFromMaterial(nullptr);
@@ -48,26 +48,42 @@ void UEquipmentSlotUserWidget::SetSlotColorToOnNotAvaliable()
 
 bool UEquipmentSlotUserWidget::CheckIsEquippable(UItemObject* _itemObject)
 {
-	if(_itemObject != nullptr)
+	if((_itemObject != nullptr) &&											//null 체크
+		(itemObject == nullptr) &&											//슬롯이 비어있으면
+		(_itemObject->GetItem()->IsA(AEquipment::StaticClass())))	//장착이 가능한 Equipment인지 체크
 	{
-		//슬롯이 비어있으면
-		if(itemObject == nullptr)
-		{
-			//장착이 가능한 Equipment인지 체크
-			if(_itemObject->GetItem()->IsA(AEquipment::StaticClass()))
-			{
-				//해당 슬롯에 맞는 타입인지 체크
-				AEquipment* equipment = Cast<AEquipment>(_itemObject->GetItem());
+		AEquipment* equipment = Cast<AEquipment>(_itemObject->GetItem());
 				
-				if(equipment != nullptr && equipment->GetEquipmentType() == equipmentType)
+		//해당 슬롯에 맞는 타입인지 체크
+		if(equipment != nullptr)
+		{
+			//무기 타입에 대한 예외처리..
+			//!@# 개선 여지 있음
+			if((equipmentSlotType == EEquipmentType::Weapon1) ||
+				(equipmentSlotType == EEquipmentType::Weapon2))
+			{
+				if((equipment->GetEquipmentType() == EEquipmentType::Weapon1) ||
+					(equipment->GetEquipmentType() == EEquipmentType::Weapon2))
 				{
 					return true;
 				}
+			}
+			else if(equipment->GetEquipmentType() == equipmentSlotType)
+			{
+				return true;
 			}
 		}
 	}
 
 	return false;
+}
+
+void UEquipmentSlotUserWidget::AddEquipmentToSlot(UItemObject* _itemObject)
+{
+	itemObject = _itemObject;
+	
+	AEquipment* equipment = Cast<AEquipment>(itemObject->GetItem());
+	equipmentComponent->AddEquipment(equipment, equipmentSlotType);		
 }
 
 #pragma region Native
@@ -110,12 +126,8 @@ bool UEquipmentSlotUserWidget::NativeOnDrop(const FGeometry& InGeometry, const F
 	{
 		//장비 슬롯에 ItemObject 등록 및 이미지 변경 등 작업
 	
-		//플레이어 처리
-		//!@#무기는 무기 칸에만 들어가듯, 각 장비 종류에 따른 제한 필요
-		itemObject = _itemObject;	//아이템 등록
-		
-		AEquipment* equipment = Cast<AEquipment>(itemObject->GetItem());
-		equipmentComponent->AddEquipment(equipment, equipmentType);	//장비 추가
+		//Equipment 처리
+		AddEquipmentToSlot(_itemObject);		//아이템 등록 및 장비 추가
 
 		//UI 처리
 		FSlateBrush itemImage = UWidgetBlueprintLibrary::MakeBrushFromMaterial(_itemObject->GetIcon());	//이미지

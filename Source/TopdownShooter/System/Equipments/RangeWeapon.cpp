@@ -3,6 +3,8 @@
 
 #include "TopdownShooter/System/Equipments/RangeWeapon.h"
 
+#include "Kismet/KismetSystemLibrary.h"
+
 void ARangeWeapon::Attack()
 {
 	UE_LOG(LogTemp, Warning, TEXT("ARangeWeapon::Attack"));

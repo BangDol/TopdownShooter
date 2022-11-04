@@ -9,7 +9,8 @@
 UENUM(BlueprintType)
 enum class EEquipmentType : uint8
 {
-	Weapon = 0		UMETA(DisplayName = "Weapon"),
+	Weapon1 = 0		UMETA(DisplayName = "Weapon1"),
+	Weapon2			UMETA(DisplayName = "Weapon2"),
 	Backpack		UMETA(DisplayName = "Backpack"),
 	Helmet			UMETA(DisplayName = "Helmet"),
 	Armor			UMETA(DisplayName = "Armor"),
@@ -22,14 +23,11 @@ class TOPDOWNSHOOTER_API UEquipmentComponent : public UActorComponent
 	GENERATED_BODY()
 
 private:
-	//class APlayerCharacter* player;
+	class APlayerCharacter* player;
 
 	//장비
-	class AWeapon* weapon;
 	TArray<class AEquipment*> equipments;
-	//가방
-	//헬멧
-	//가슴방어구
+	class AWeapon* equippedWeapon;
 
 public:	
 	UEquipmentComponent();
@@ -38,7 +36,9 @@ public:
 	void Init();
 	UFUNCTION(BlueprintCallable)
 	void AddEquipment(class AEquipment* _equipment, EEquipmentType _index);
+	
 	void RemoveEquipment(EEquipmentType _index);
+	void SwapWeapon(EEquipmentType _weaponType);
 
 	UFUNCTION(BlueprintCallable)
 	AWeapon* GetEquippedWeapon();
