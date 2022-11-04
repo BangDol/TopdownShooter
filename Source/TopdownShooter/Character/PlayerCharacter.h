@@ -45,6 +45,11 @@ protected:
 	float interactTraceMaxDist;
 	FHitResult interactTraceHitResult;
 
+	//UI
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = UI)
+	TSubclassOf<class UInventoryUserWidget> inventoryUIClass;
+	class UInventoryUserWidget* inventoryUI;
+
 public:
 	APlayerCharacter();
 	void BeginPlay() override;
@@ -66,5 +71,8 @@ protected:
 
 public:
 	UInventoryComponent* GetInventoryComponent();
+	UInventoryUserWidget* GetInventoryUI();
+	APlayerCharacterController* GetPlayerController();
 	void UpdatePCState();
+	void OpenInventory();
 };

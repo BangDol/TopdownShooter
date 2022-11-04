@@ -51,6 +51,13 @@ void APlayerCharacter::BeginPlay()
 
 	//플레이어 컨트롤러
 	playerController = Cast<APlayerCharacterController>(GetWorld()->GetFirstPlayerController());
+
+	//UI
+	inventoryUI = CreateWidget<UInventoryUserWidget>(playerController, inventoryUIClass);
+	if(inventoryUI != nullptr)
+	{
+		inventoryUI->Init(inventoryComponent, equipmentComponent, 50.f);
+	}
 }
 
 void APlayerCharacter::Tick(float DeltaSeconds)
@@ -132,7 +139,10 @@ void APlayerCharacter::Interact()
 
 void APlayerCharacter::ToggleInventory()
 {
-	//BP
+	if(inventoryUI->IsInViewport() == false)
+	{
+		inventoryUI->AddToViewport();
+	}
 }
 
 void APlayerCharacter::Attack()
@@ -193,12 +203,22 @@ void APlayerCharacter::SearchForInteractable()
 
 	//UI Render Opacity
 	ATopdownShooterGameMode* gameMode = Cast<ATopdownShooterGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
-	gameMode->UpdateInteractUI(pcState.isInteractable = true);
+	gameMode->UpdateInteractUI(pcState.isInteractable);
 }
 
 UInventoryComponent* APlayerCharacter::GetInventoryComponent()
 {
 	return inventoryComponent;
+}
+
+UInventoryUserWidget* APlayerCharacter::GetInventoryUI()
+{
+	return inventoryUI;
+}
+
+APlayerCharacterController* APlayerCharacter::GetPlayerController()
+{
+	return playerController;
 }
 
 void APlayerCharacter::UpdatePCState()
@@ -211,4 +231,9 @@ void APlayerCharacter::UpdatePCState()
 	{
 		pcState.isArmed = false;
 	}
+}
+
+void APlayerCharacter::OpenInventory()
+{
+	ToggleInventory();
 }

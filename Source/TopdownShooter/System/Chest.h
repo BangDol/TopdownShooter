@@ -13,11 +13,22 @@ UCLASS()
 class TOPDOWNSHOOTER_API AChest : public AInteractable
 {
 	GENERATED_BODY()
-	
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = UMG, meta= (AllowPrivateAccess = "true"))
+
+protected:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = UMG)
 	class UInventoryComponent* inventoryComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = UI)
+	TSubclassOf<class UInventoryGridUserWidget> inventoryGridUserWidgetClass; 
+	class UInventoryGridUserWidget* inventoryGridUserWidget;
+
+	class APlayerCharacter* player;
+
+public:
+	AChest();
 	
-protected:	
+protected:
+	virtual void BeginPlay() override;
 	virtual void OnInteract_Implementation() override;
 	
 	void OpenChest();

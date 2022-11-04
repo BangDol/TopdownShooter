@@ -21,6 +21,9 @@ protected:
 	UPROPERTY(meta = (BindWidget))
 	class UEquipmentsUserWidget* equipmentsUserWidget;
 
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
+	class UChestInventoryUserWidget* chestInventoryUserWidget;
+
 private:
 	class UInventoryComponent* inventoryComponent;
 	class UEquipmentComponent* equipmentComponent;
@@ -31,6 +34,7 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
 	void Init(class UInventoryComponent* _inventoryComponent, UEquipmentComponent* _equipmentComponent, float _tileSize);
+	UChestInventoryUserWidget* GetChestInventoryUserWidget();
 	
 protected:
 	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;

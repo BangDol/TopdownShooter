@@ -21,6 +21,12 @@ void UInventoryUserWidget::Init(UInventoryComponent* _inventoryComponent, UEquip
 
 	inventoryGridUserWidget->Init(inventoryComponent, tileSize);
 	equipmentsUserWidget->Init(inventoryComponent, equipmentComponent);
+	//chestInventoryGridUserWidget->RenderOpacity = 0.f;
+}
+
+UChestInventoryUserWidget* UInventoryUserWidget::GetChestInventoryUserWidget()
+{
+	return chestInventoryUserWidget;
 }
 
 #pragma region Native
