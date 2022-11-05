@@ -115,8 +115,9 @@ void APlayerCharacter::Turn(float Value)
 	if(playerController != nullptr)
 	{
 		FHitResult hitResult;
+		ETraceTypeQuery mouseTraceType = UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_GameTraceChannel2);
 		
-		if(playerController->GetHitResultUnderCursorByChannel(ETraceTypeQuery::TraceTypeQuery1, true, hitResult))
+		if(playerController->GetHitResultUnderCursorByChannel(mouseTraceType, true, hitResult))
 		{
 			FRotator newRotation = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), hitResult.Location);
 			FRotator lookRotation = FRotator(0, newRotation.Yaw, 0);
