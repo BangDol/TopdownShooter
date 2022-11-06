@@ -17,8 +17,19 @@ class TOPDOWNSHOOTER_API AEquipment : public AItem
 
 protected:
 	EEquipmentType equipmentType;
-	//헬멧, 아머 등 소스코드 생성 후 거기서 설정할 것 -> 블루프린트에서 일일이 지정할 필요 없음
+
+	APlayerCharacter* player;
+	AEquipment* spawnedEquipment;
+
 public:
-	UFUNCTION(BlueprintCallable)
+	virtual void BeginPlay() override;
+
+	void Init();
 	EEquipmentType GetEquipmentType();
+
+	virtual void OnEquip();
+	virtual void OnUnequip();
+
+protected:
+	FName GetSocketName();
 };

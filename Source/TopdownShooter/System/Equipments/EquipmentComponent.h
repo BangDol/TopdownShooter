@@ -27,7 +27,7 @@ private:
 
 	//장비
 	TArray<class AEquipment*> equipments;
-	class AWeapon* equippedWeapon;
+	class AWeapon* holdingWeapon;
 
 public:	
 	UEquipmentComponent();
@@ -41,5 +41,5 @@ public:
 	void SwapWeapon(EEquipmentType _weaponType);
 
 	UFUNCTION(BlueprintCallable)
-	AWeapon* GetEquippedWeapon();
+	AWeapon* GetHoldingWeapon();
 };

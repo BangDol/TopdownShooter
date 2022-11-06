@@ -7,8 +7,6 @@
 
 void ARangeWeapon::Attack()
 {
-	UE_LOG(LogTemp, Warning, TEXT("ARangeWeapon::Attack"));
-
 	Fire();
 }
 

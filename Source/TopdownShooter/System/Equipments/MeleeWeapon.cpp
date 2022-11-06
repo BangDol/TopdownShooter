@@ -5,8 +5,6 @@
 
 void AMeleeWeapon::Attack()
 {
-	UE_LOG(LogTemp, Warning, TEXT("AMeleeWeapon::Attack"));
-
 	MeleeAttack();
 }
 

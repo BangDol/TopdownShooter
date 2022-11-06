@@ -148,9 +148,9 @@ void APlayerCharacter::ToggleInventory()
 
 void APlayerCharacter::Attack()
 {
-	if(equipmentComponent->GetEquippedWeapon() != nullptr)
+	if(equipmentComponent->GetHoldingWeapon() != nullptr)
 	{
-		equipmentComponent->GetEquippedWeapon()->Attack();
+		equipmentComponent->GetHoldingWeapon()->Attack();
 	}
 }
 
@@ -224,7 +224,7 @@ APlayerCharacterController* APlayerCharacter::GetPlayerController()
 
 void APlayerCharacter::UpdatePCState()
 {
-	if(equipmentComponent->GetEquippedWeapon() != nullptr)
+	if(equipmentComponent->GetHoldingWeapon() != nullptr)
 	{
 		pcState.isArmed = true;
 	}
