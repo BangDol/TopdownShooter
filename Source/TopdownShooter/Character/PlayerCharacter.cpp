@@ -222,6 +222,11 @@ APlayerCharacterController* APlayerCharacter::GetPlayerController()
 	return playerController;
 }
 
+FPCState APlayerCharacter::GetPCState()
+{
+	return pcState;
+}
+
 void APlayerCharacter::UpdatePCState()
 {
 	if(equipmentComponent->GetHoldingWeapon() != nullptr)

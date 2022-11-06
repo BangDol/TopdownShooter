@@ -10,7 +10,6 @@ struct FPCState
 {
 	GENERATED_BODY()
 
-	UPROPERTY(BlueprintReadOnly)
 	bool isInteractable = false;
 	
 	UPROPERTY(BlueprintReadOnly)
@@ -73,6 +72,7 @@ public:
 	UInventoryComponent* GetInventoryComponent();
 	UInventoryUserWidget* GetInventoryUI();
 	APlayerCharacterController* GetPlayerController();
+	FPCState GetPCState();
 	void UpdatePCState();
 	void OpenInventory();
 };
