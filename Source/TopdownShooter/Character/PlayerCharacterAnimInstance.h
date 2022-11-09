@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "PlayerCharacter.h"
 #include "TopdownShooter/Character/CharacterBaseAnimInstance.h"
+#include "TopdownShooter/System/Equipments/Weapon.h"
 #include "PlayerCharacterAnimInstance.generated.h"
 
 /**
@@ -21,6 +22,9 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly)
 	FPCState pcState;
+
+	UPROPERTY(BlueprintReadOnly)
+	EWeaponType holdingWeaponType;
 
 protected:
 	virtual void NativeBeginPlay() override;

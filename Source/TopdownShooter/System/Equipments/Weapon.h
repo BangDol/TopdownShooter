@@ -9,7 +9,8 @@
 UENUM()
 enum class EWeaponType : uint8
 {
-	Knife = 0		UMETA(DisplayName = "Knife"),
+	None = 0		UMETA(DisplayName = "None"),
+	Knife			UMETA(DisplayName = "Knife"),
 	Rifle			UMETA(DisplayName = "Rifle"),
 	Count
 };
@@ -29,4 +30,6 @@ public:
 	virtual void Attack();
 	void OnEnable();
 	void OnDisable();
+
+	EWeaponType GetWeaponType();
 };

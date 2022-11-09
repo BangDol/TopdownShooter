@@ -81,6 +81,7 @@ void APlayerCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &APlayerCharacter::Interact);
 	PlayerInputComponent->BindAction("ToggleInventory", IE_Pressed, this, &APlayerCharacter::ToggleInventory);
 	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &APlayerCharacter::Attack);
+	PlayerInputComponent->BindAction("Attack", IE_Released, this, &APlayerCharacter::StopAttack);
 	PlayerInputComponent->BindAction("SwapToWeapon1", IE_Pressed, this, &APlayerCharacter::SwapToWeapon1);
 	PlayerInputComponent->BindAction("SwapToWeapon2", IE_Pressed, this, &APlayerCharacter::SwapToWeapon2);
 }		
@@ -151,6 +152,17 @@ void APlayerCharacter::Attack()
 	if(equipmentComponent->GetHoldingWeapon() != nullptr)
 	{
 		equipmentComponent->GetHoldingWeapon()->Attack();
+		//pcState.isShooting = true;
+	}
+}
+
+void APlayerCharacter::StopAttack()
+{
+	if(equipmentComponent->GetHoldingWeapon() != nullptr)
+	{
+		//equipmentComponent->GetHoldingWeapon()->Attack();
+		//pcState.isShooting = false;
+		
 	}
 }
 
@@ -225,6 +237,16 @@ APlayerCharacterController* APlayerCharacter::GetPlayerController()
 FPCState APlayerCharacter::GetPCState()
 {
 	return pcState;
+}
+
+EWeaponType APlayerCharacter::GetHoldingWeaponType()
+{
+	if(equipmentComponent->GetHoldingWeapon() != nullptr)
+	{
+		return equipmentComponent->GetHoldingWeapon()->GetWeaponType();
+	}
+
+	return EWeaponType::None;
 }
 
 void APlayerCharacter::UpdatePCState()

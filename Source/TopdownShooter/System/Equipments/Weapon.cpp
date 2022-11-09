@@ -8,6 +8,7 @@
 AWeapon::AWeapon()
 {
 	equipmentType = EEquipmentType::Weapon1;
+	weaponType = EWeaponType::Knife;
 }
 
 void AWeapon::Attack()
@@ -59,4 +60,10 @@ void AWeapon::OnDisable()
 		FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
 			TEXT("WeaponHolster1"));
 	}
+}
+
+//애니메이션 구분 등
+EWeaponType AWeapon::GetWeaponType()
+{
+	return weaponType;
 }

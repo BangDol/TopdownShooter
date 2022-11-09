@@ -20,5 +20,6 @@ void UPlayerCharacterAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 	if(player != nullptr)
 	{
 		pcState = player->GetPCState();
+		holdingWeaponType = player->GetHoldingWeaponType();
 	}
 }

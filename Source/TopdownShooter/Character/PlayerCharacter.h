@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "CharacterBase.h"
 #include "GameFramework/Character.h"
+#include "TopdownShooter/System/Equipments/Weapon.h"
 #include "PlayerCharacter.generated.h"
 
 USTRUCT(BlueprintType)
@@ -14,6 +15,9 @@ struct FPCState
 	
 	UPROPERTY(BlueprintReadOnly)
 	bool isArmed = false;
+
+	UPROPERTY(BlueprintReadWrite)
+	bool isShooting = false;
 };
 
 UCLASS(config=Game)
@@ -63,6 +67,7 @@ protected:
 	void Interact();
 	void ToggleInventory();
 	void Attack();
+	void StopAttack();
 	void SwapToWeapon1();
 	void SwapToWeapon2();
 	
@@ -73,6 +78,7 @@ public:
 	UInventoryUserWidget* GetInventoryUI();
 	APlayerCharacterController* GetPlayerController();
 	FPCState GetPCState();
+	EWeaponType GetHoldingWeaponType();
 	void UpdatePCState();
 	void OpenInventory();
 };
