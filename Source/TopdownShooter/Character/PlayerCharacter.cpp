@@ -65,7 +65,7 @@ void APlayerCharacter::Tick(float DeltaSeconds)
 	Super::Tick(DeltaSeconds);
 
 	SearchForInteractable();
-	UpdatePCState();
+	//UpdatePCState();
 }
 
 #pragma region 조작 관련
@@ -234,10 +234,10 @@ APlayerCharacterController* APlayerCharacter::GetPlayerController()
 	return playerController;
 }
 
-FPCState APlayerCharacter::GetPCState()
-{
-	return pcState;
-}
+//FPCState APlayerCharacter::GetPCState()
+//{
+//	return pcState;
+//}
 
 EWeaponType APlayerCharacter::GetHoldingWeaponType()
 {
@@ -249,17 +249,17 @@ EWeaponType APlayerCharacter::GetHoldingWeaponType()
 	return EWeaponType::None;
 }
 
-void APlayerCharacter::UpdatePCState()
-{
-	if(equipmentComponent->GetHoldingWeapon() != nullptr)
-	{
-		pcState.isArmed = true;
-	}
-	else
-	{
-		pcState.isArmed = false;
-	}
-}
+//void APlayerCharacter::UpdatePCState()
+//{
+//	if(equipmentComponent->GetHoldingWeapon() != nullptr)
+//	{
+//		pcState.isArmed = true;
+//	}
+//	else
+//	{
+//		pcState.isArmed = false;
+//	}
+//}
 
 void APlayerCharacter::OpenInventory()
 {

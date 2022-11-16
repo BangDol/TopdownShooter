@@ -31,11 +31,6 @@ void UEquipmentComponent::AddEquipment(AEquipment* _equipment, EEquipmentType _i
 {
 	equipments[(int)_index] = _equipment;
 	equipments[(int)_index]->OnEquip();					//플레이어에게 Spawn
-	
-	//if(currentWeapon == nullptr)						//현재 손에 들려있는 무기가 없으면 무기 장착
-	//{
-	//	currentWeapon = Cast<AWeapon>(_equipment);
-	//}
 }
 
 void UEquipmentComponent::RemoveEquipment(EEquipmentType _index)
@@ -44,14 +39,6 @@ void UEquipmentComponent::RemoveEquipment(EEquipmentType _index)
 	
 	if(holdingWeapon == Cast<AWeapon>(equipments[(int)_index]))		//지우고자 하는 장비가 현재 장착 중인 무기인 경우
 	{
-		//if(_index == EEquipmentType::Weapon1)			//1번 무기 지우면 2번 무기로
-		//{
-		//	SwapWeapon(EEquipmentType::Weapon2);
-		//}
-		//else if(_index == EEquipmentType::Weapon2)		//2번 무기 지우면 1번 무기로
-		//{
-		//	SwapWeapon(EEquipmentType::Weapon1);
-		//}
 		holdingWeapon = nullptr;	//맨손으로
 	}
 	
@@ -87,7 +74,7 @@ void UEquipmentComponent::SwapWeapon(EEquipmentType _weaponType)
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Already Equipped Weapon2"));
+		UE_LOG(LogTemp, Warning, TEXT("Already Equipped This Weapon"));
 	}
 }
 

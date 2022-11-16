@@ -19,7 +19,7 @@ void UPlayerCharacterAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 	//애니메이션을 위한 플레이어 상태
 	if(player != nullptr)
 	{
-		pcState = player->GetPCState();
+		//pcState = player->GetPCState();
 		holdingWeaponType = player->GetHoldingWeaponType();
 	}
 }

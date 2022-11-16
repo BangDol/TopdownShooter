@@ -3,14 +3,25 @@
 
 #include "TopdownShooter/System/Equipments/Equipment.h"
 
+#include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "TopdownShooter/Character/PlayerCharacter.h"
+
+AEquipment::AEquipment()
+{
+	socketName = TEXT("");
+}
 
 void AEquipment::BeginPlay()
 {
 	Super::BeginPlay();
 
 	Init();
+}
+
+void AEquipment::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
 }
 
 void AEquipment::Init()
@@ -26,38 +37,21 @@ EEquipmentType AEquipment::GetEquipmentType()
 
 void AEquipment::OnEquip()
 {
-	if(player != nullptr)
-	{
-		FName socketName = GetSocketName();
-		FActorSpawnParameters actorSpawnParam;
-		
-		spawnedEquipment = GetWorld()->SpawnActor<AEquipment>(this->GetClass(), actorSpawnParam);
-		spawnedEquipment->AttachToComponent(
-			player->GetMesh(),
-			FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
-			socketName);
-	}
+	SpawnEquipmentOnPlayer();
 }
 
 void AEquipment::OnUnequip()
 {
-	spawnedEquipment->Destroy();
+	if(spawnedEquipment != nullptr)
+	{
+		spawnedEquipment->Destroy();
+	}
 }
 
 FName AEquipment::GetSocketName()
 {
-	FName socketName;
-	
 	switch(equipmentType)
 	{
-	case EEquipmentType::Weapon1:
-		socketName = TEXT("WeaponHolster1");
-		break;
-			
-	case EEquipmentType::Weapon2:
-		socketName = TEXT("WeaponHolster2");
-		break;
-			
 	case EEquipmentType::Backpack:
 		socketName = TEXT("");
 		break;
@@ -76,4 +70,40 @@ FName AEquipment::GetSocketName()
 	}
 
 	return socketName;
+}
+
+void AEquipment::SpawnEquipmentOnPlayer()
+{
+	if(player != nullptr)
+	{
+		socketName = GetSocketName();
+		FActorSpawnParameters actorSpawnParam;
+
+		//###주의###
+		//spawnedEquipment는 다른 객체이므로 정보 전달 필수
+		//!@# 스폰 방식을 다르게 하는 등 개선 여지 있음
+		spawnedEquipment = GetWorld()->SpawnActor<AEquipment>(this->GetClass(), actorSpawnParam);
+		spawnedEquipment->AttachToComponent(
+			player->GetMesh(),
+			FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
+			socketName);
+		
+		spawnedEquipment->SetInteractionCollsion(false);
+	}
+}
+
+void AEquipment::SetInteractionCollsion(bool isInteractable)
+{
+	if(isInteractable)
+	{
+		interactionCollision->SetCollisionResponseToChannel(
+			ECollisionChannel::ECC_GameTraceChannel1,
+			ECollisionResponse::ECR_Block);
+	}
+	else
+	{
+		interactionCollision->SetCollisionResponseToChannel(
+			ECollisionChannel::ECC_GameTraceChannel1,
+			ECollisionResponse::ECR_Ignore);
+	}	
 }

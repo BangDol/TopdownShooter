@@ -20,8 +20,8 @@ protected:
 	UPROPERTY(BlueprintReadOnly)
 	class APlayerCharacter* player;
 
-	UPROPERTY(BlueprintReadOnly)
-	FPCState pcState;
+	//UPROPERTY(BlueprintReadOnly)
+	//FPCState pcState;
 
 	UPROPERTY(BlueprintReadOnly)
 	EWeaponType holdingWeaponType;

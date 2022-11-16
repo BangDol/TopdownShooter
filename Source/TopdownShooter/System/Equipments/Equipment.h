@@ -21,8 +21,14 @@ protected:
 	APlayerCharacter* player;
 	AEquipment* spawnedEquipment;
 
+	FName socketName;
+
+	bool equipped;
+
 public:
+	AEquipment();
 	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaSeconds) override;
 
 	void Init();
 	EEquipmentType GetEquipmentType();
@@ -31,5 +37,7 @@ public:
 	virtual void OnUnequip();
 
 protected:
-	FName GetSocketName();
+	virtual FName GetSocketName();
+	void SpawnEquipmentOnPlayer();
+	void SetInteractionCollsion(bool isInteractable);
 };

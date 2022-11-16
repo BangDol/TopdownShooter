@@ -13,11 +13,11 @@ struct FPCState
 
 	bool isInteractable = false;
 	
-	UPROPERTY(BlueprintReadOnly)
-	bool isArmed = false;
-
-	UPROPERTY(BlueprintReadWrite)
-	bool isShooting = false;
+	//UPROPERTY(BlueprintReadOnly)
+	//bool isArmed = false;
+//
+	//UPROPERTY(BlueprintReadWrite)
+	//bool isShooting = false;
 };
 
 UCLASS(config=Game)
@@ -77,8 +77,8 @@ public:
 	UInventoryComponent* GetInventoryComponent();
 	UInventoryUserWidget* GetInventoryUI();
 	APlayerCharacterController* GetPlayerController();
-	FPCState GetPCState();
+	//FPCState GetPCState();
 	EWeaponType GetHoldingWeaponType();
-	void UpdatePCState();
+	//void UpdatePCState();
 	void OpenInventory();
 };

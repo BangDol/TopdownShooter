@@ -32,4 +32,7 @@ public:
 	void OnDisable();
 
 	EWeaponType GetWeaponType();
+
+protected:
+	virtual FName GetSocketName() override;
 };

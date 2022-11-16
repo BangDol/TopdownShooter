@@ -5,8 +5,14 @@
 
 #include "InventoryComponent.h"
 #include "ItemObject.h"
+#include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "TopdownShooter/Character/PlayerCharacter.h"
+
+AItem::AItem()
+{
+	mesh->SetCollisionProfileName(TEXT("NoCollision"));
+}
 
 void AItem::BeginPlay()
 {

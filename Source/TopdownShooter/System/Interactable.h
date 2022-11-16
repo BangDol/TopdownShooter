@@ -14,6 +14,8 @@ class TOPDOWNSHOOTER_API AInteractable : public AActor
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Mesh)
 	class UStaticMeshComponent* mesh;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	class UBoxComponent* interactionCollision;
 	
 public:	
 	// Sets default values for this actor's properties

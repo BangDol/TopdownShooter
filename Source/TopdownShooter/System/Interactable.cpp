@@ -3,6 +3,8 @@
 
 #include "Interactable.h"
 
+#include "Components/BoxComponent.h"
+
 // Sets default values
 AInteractable::AInteractable()
 {
@@ -11,7 +13,10 @@ AInteractable::AInteractable()
 
 	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	RootComponent = mesh;
-	mesh->SetCollisionProfileName(TEXT("Interactable"));
+	
+	interactionCollision = CreateDefaultSubobject<UBoxComponent>(TEXT("InteractionCollision"));
+	interactionCollision->SetupAttachment(mesh);
+	interactionCollision->SetCollisionProfileName(TEXT("Interactable"));
 }
 
 // Called when the game starts or when spawned
