@@ -5,9 +5,26 @@
 
 #include "Kismet/KismetSystemLibrary.h"
 
+ARangeWeapon::ARangeWeapon()
+{
+	gunMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("GunMesh"));
+	gunMesh->SetupAttachment(mesh);
+}
+
+void ARangeWeapon::BeginPlay()
+{
+	Super::BeginPlay();
+}
+
+void ARangeWeapon::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+}
+
 void ARangeWeapon::Attack()
 {
 	Fire();
+	
 }
 
 void ARangeWeapon::Fire()
