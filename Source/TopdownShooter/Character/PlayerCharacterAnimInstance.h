@@ -26,7 +26,9 @@ protected:
 	UPROPERTY(BlueprintReadOnly)
 	EWeaponType holdingWeaponType;
 
-protected:
+public:
+	UPlayerCharacterAnimInstance();
+	
 	virtual void NativeBeginPlay() override;
 	virtual void NativeUpdateAnimation(float DeltaSeconds) override;
 };

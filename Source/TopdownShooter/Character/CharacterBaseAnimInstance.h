@@ -26,7 +26,6 @@ protected:
 public:
 	UCharacterBaseAnimInstance();
 	
-protected:
 	void NativeBeginPlay() override;
 	void NativeUpdateAnimation(float DeltaSeconds) override;
 };

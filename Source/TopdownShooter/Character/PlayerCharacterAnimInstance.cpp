@@ -5,6 +5,10 @@
 
 #include "PlayerCharacter.h"
 
+UPlayerCharacterAnimInstance::UPlayerCharacterAnimInstance()
+{
+}
+
 void UPlayerCharacterAnimInstance::NativeBeginPlay()
 {
 	Super::NativeBeginPlay();
