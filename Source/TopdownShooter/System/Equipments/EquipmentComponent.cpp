@@ -31,6 +31,8 @@ void UEquipmentComponent::AddEquipment(AEquipment* _equipment, EEquipmentType _i
 {
 	//Spawn 후
 	FActorSpawnParameters actorSpawnParam;
+	actorSpawnParam.Template = _equipment;
+	
 	equipments[(int)_index] = GetWorld()->SpawnActor<AEquipment>(_equipment->GetClass(), actorSpawnParam);
 
 	//플레이어의 특정 위치에 Attach

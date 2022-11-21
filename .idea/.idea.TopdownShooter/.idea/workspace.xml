@@ -6,26 +6,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="572c5e78-dcf4-40ce-b080-b94f94981847" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Characters/Enemy/Animations/Zombies/ABP_Zombie.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Characters/Enemy/Animations/Zombies/AS_NAAT_Zombie_BL_Idle.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Characters/Enemy/Animations/Zombies/AS_NAAT_Zombie_BL_Run.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Characters/Enemy/Animations/Zombies/AS_NAAT_Zombie_BL_Walk.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Characters/Enemy/Animations/Zombies/BS_Zombie_IdleWalk.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/Characters/Enemy/Test/BP_TestEnemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Characters/Enemy/Test/BP_TestEnemy.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Characters/Player/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Characters/Player/BP_Player.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_RangeWeapon1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_RangeWeapon1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Maps/Map_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Maps/Map_Test.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/Maps/Map_Test_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Maps/Map_Test_BuiltData.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Character/CharacterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/CharacterBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Character/CharacterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/CharacterBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Character/EnemyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/EnemyCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Character/EnemyCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/EnemyCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/Equipment.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/Equipment.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/Equipment.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/Equipment.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/EquipmentComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/EquipmentComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/RangeWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/RangeWeapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/RangeWeapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/RangeWeapon.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/Weapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/Weapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Interactable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Interactable.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/Item.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/Item.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/ItemObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/ItemObject.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Character/Mesh/SK_Mannequin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Character/Mesh/SK_Mannequin.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Character/Mesh/UE4_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Character/Mesh/UE4_Mannequin_Skeleton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Marketplace/BSP_ZombieAnims/EpicAssets/Mannequin/Character/Mesh/SKEL_UE4_Manaquin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Marketplace/BSP_ZombieAnims/EpicAssets/Mannequin/Character/Mesh/SKEL_UE4_Manaquin_Skeleton.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -313,7 +303,7 @@
       <workItem from="1668592417244" duration="5070000" />
       <workItem from="1668684857910" duration="1743000" />
       <workItem from="1669030980568" duration="3884000" />
-      <workItem from="1669052463403" duration="5552000" />
+      <workItem from="1669052463403" duration="6485000" />
     </task>
     <task id="LOCAL-00001" summary="인벤토리 BP -&gt; C++ 이동 작업4">
       <created>1666524589216</created>
