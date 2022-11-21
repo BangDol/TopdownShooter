@@ -26,10 +26,6 @@ void AItem::BeginPlay()
 
 void AItem::OnInteract_Implementation()
 {
-	//Super::OnInteract_Implementation();
-	//**override
-	//** 코드에서 콜리전 세팅해두는 게 좋을 듯
-	
 	APlayerCharacter* player = Cast<APlayerCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
 	if(itemObject != nullptr)
 	{

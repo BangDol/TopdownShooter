@@ -5,13 +5,27 @@
     <projectFile>Intermediate/ProjectFiles/UE4.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="572c5e78-dcf4-40ce-b080-b94f94981847" name="Changes" comment="애니메이션 에셋 추가 - Zombie Movement">
-      <change afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/EnemyCharacterAnimInstance.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/EnemyCharacterAnimInstance.h" afterDir="false" />
+    <list default="true" id="572c5e78-dcf4-40ce-b080-b94f94981847" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TopdownShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Character/CharacterBaseAnimInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/CharacterBaseAnimInstance.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Character/PlayerCharacterAnimInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/PlayerCharacterAnimInstance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Character/PlayerCharacterAnimInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/PlayerCharacterAnimInstance.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Characters/Enemy/Test/BP_TestEnemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Characters/Enemy/Test/BP_TestEnemy.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Characters/Player/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Characters/Player/BP_Player.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_RangeWeapon1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Interactable/Items/BP_RangeWeapon1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Maps/Map_Test.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Maps/Map_Test.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/Maps/Map_Test_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/Maps/Map_Test_BuiltData.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Character/CharacterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/CharacterBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Character/CharacterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/CharacterBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Character/EnemyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/EnemyCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/Character/EnemyCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/Character/EnemyCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/Equipment.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/Equipment.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/Equipment.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/Equipment.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/EquipmentComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/EquipmentComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/RangeWeapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/RangeWeapon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/RangeWeapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/RangeWeapon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/Weapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Equipments/Weapon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Interactable.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Interactable.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/Item.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/Item.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/ItemObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TopdownShooter/System/Inventory/ItemObject.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,7 +312,8 @@
       <workItem from="1668069415863" duration="669000" />
       <workItem from="1668592417244" duration="5070000" />
       <workItem from="1668684857910" duration="1743000" />
-      <workItem from="1669030980568" duration="1151000" />
+      <workItem from="1669030980568" duration="3884000" />
+      <workItem from="1669052463403" duration="5552000" />
     </task>
     <task id="LOCAL-00001" summary="인벤토리 BP -&gt; C++ 이동 작업4">
       <created>1666524589216</created>
@@ -328,7 +343,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669031474391</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Enemy 애님 인스턴스 클래스 추가">
+      <created>1669032227723</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669032227723</updated>
+    </task>
+    <task id="LOCAL-00006" summary="에셋 추가 - FPS Assault Pack">
+      <created>1669032447164</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669032447164</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,6 +383,8 @@
     <MESSAGE value="인벤토리 BP -&gt; C++ 이동 작업5" />
     <MESSAGE value="상자 인벤토리 구현" />
     <MESSAGE value="애니메이션 에셋 추가 - Zombie Movement" />
-    <option name="LAST_COMMIT_MESSAGE" value="애니메이션 에셋 추가 - Zombie Movement" />
+    <MESSAGE value="Enemy 애님 인스턴스 클래스 추가" />
+    <MESSAGE value="에셋 추가 - FPS Assault Pack" />
+    <option name="LAST_COMMIT_MESSAGE" value="에셋 추가 - FPS Assault Pack" />
   </component>
 </project>

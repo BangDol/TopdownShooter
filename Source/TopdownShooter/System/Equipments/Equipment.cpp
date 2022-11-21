@@ -37,15 +37,14 @@ EEquipmentType AEquipment::GetEquipmentType()
 
 void AEquipment::OnEquip()
 {
-	SpawnEquipmentOnPlayer();
+	SetInteractionCollsion(false);
+
+	AttachEquipmentToPlayer();
 }
 
 void AEquipment::OnUnequip()
 {
-	if(spawnedEquipment != nullptr)
-	{
-		spawnedEquipment->Destroy();
-	}
+	Destroy();
 }
 
 FName AEquipment::GetSocketName()
@@ -72,23 +71,16 @@ FName AEquipment::GetSocketName()
 	return socketName;
 }
 
-void AEquipment::SpawnEquipmentOnPlayer()
+void AEquipment::AttachEquipmentToPlayer()
 {
 	if(player != nullptr)
 	{
 		socketName = GetSocketName();
-		FActorSpawnParameters actorSpawnParam;
 
-		//###주의###
-		//spawnedEquipment는 다른 객체이므로 정보 전달 필수
-		//!@# 스폰 방식을 다르게 하는 등 개선 여지 있음
-		spawnedEquipment = GetWorld()->SpawnActor<AEquipment>(this->GetClass(), actorSpawnParam);
-		spawnedEquipment->AttachToComponent(
+		AttachToComponent(
 			player->GetMesh(),
 			FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
 			socketName);
-		
-		spawnedEquipment->SetInteractionCollsion(false);
 	}
 }
 

@@ -15,7 +15,7 @@ AInteractable::AInteractable()
 	RootComponent = mesh;
 	
 	interactionCollision = CreateDefaultSubobject<UBoxComponent>(TEXT("InteractionCollision"));
-	interactionCollision->SetupAttachment(mesh);
+	interactionCollision->SetupAttachment(RootComponent);
 	interactionCollision->SetCollisionProfileName(TEXT("Interactable"));
 }
 

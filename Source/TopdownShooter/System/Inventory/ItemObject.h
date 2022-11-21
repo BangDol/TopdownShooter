@@ -36,5 +36,5 @@ public:
 	void Rotate();
 	bool IsRotated();
 
-	void Init(FIntPoint _dimensions, UMaterialInterface* _icon, UMaterialInterface* _iconRotated, AItem* _itemClass);
+	void Init(FIntPoint _dimensions, UMaterialInterface* _icon, UMaterialInterface* _iconRotated, AItem* _item);
 };

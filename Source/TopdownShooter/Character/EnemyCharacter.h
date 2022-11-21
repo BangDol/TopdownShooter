@@ -13,5 +13,15 @@ UCLASS()
 class TOPDOWNSHOOTER_API AEnemyCharacter : public ACharacterBase
 {
 	GENERATED_BODY()
+
+protected:
 	
+
+public:
+	AEnemyCharacter();
+
+	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaSeconds) override;
+
+	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
 };

@@ -39,10 +39,12 @@ void AWeapon::OnEnable()
 		socketNameForHolding = TEXT("");
 		break;
 	}
+
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, socketNameForHolding.ToString());
 	
 	if(player != nullptr)
 	{
-		spawnedEquipment->AttachToComponent(
+		AttachToComponent(
 		player->GetMesh(),
 		FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
 			socketNameForHolding);
@@ -53,12 +55,11 @@ void AWeapon::OnDisable()
 {
 	UE_LOG(LogTemp, Warning, TEXT("AWeapon::OnDisable"));
 	
-	if((spawnedEquipment != nullptr) &&
-		(player != nullptr))
+	if(player != nullptr)
 	{
 		socketName = GetSocketName();
 		
-		spawnedEquipment->AttachToComponent(
+		AttachToComponent(
 		player->GetMesh(),
 		FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
 			socketName);

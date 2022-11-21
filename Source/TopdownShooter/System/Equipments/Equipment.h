@@ -16,14 +16,14 @@ class TOPDOWNSHOOTER_API AEquipment : public AItem
 	GENERATED_BODY()
 
 protected:
+	UPROPERTY()
 	EEquipmentType equipmentType;
 
+	UPROPERTY()
 	APlayerCharacter* player;
-	AEquipment* spawnedEquipment;
-
+	
+	UPROPERTY()
 	FName socketName;
-
-	bool equipped;
 
 public:
 	AEquipment();
@@ -38,6 +38,6 @@ public:
 
 protected:
 	virtual FName GetSocketName();
-	void SpawnEquipmentOnPlayer();
+	void AttachEquipmentToPlayer();
 	void SetInteractionCollsion(bool isInteractable);
 };

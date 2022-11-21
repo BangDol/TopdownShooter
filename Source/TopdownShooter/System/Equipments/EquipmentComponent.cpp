@@ -29,8 +29,12 @@ void UEquipmentComponent::Init()
 
 void UEquipmentComponent::AddEquipment(AEquipment* _equipment, EEquipmentType _index)
 {
-	equipments[(int)_index] = _equipment;
-	equipments[(int)_index]->OnEquip();					//플레이어에게 Spawn
+	//Spawn 후
+	FActorSpawnParameters actorSpawnParam;
+	equipments[(int)_index] = GetWorld()->SpawnActor<AEquipment>(_equipment->GetClass(), actorSpawnParam);
+
+	//플레이어의 특정 위치에 Attach
+	equipments[(int)_index]->OnEquip();
 }
 
 void UEquipmentComponent::RemoveEquipment(EEquipmentType _index)
